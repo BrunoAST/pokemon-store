@@ -10,11 +10,11 @@ export type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType>({ theme: EThemeContextOptions.FIRE, setTheme: theme => console.warn('no theme provided')});
 
 const ThemeProvider: React.FC<ReactNode> = ({ children }) => {
-    const [theme, setTheme] = useState(EThemeContextOptions.FIRE);
+    const [theme, setTheme] = useState(process.env.REACT_APP_TYPE as EThemeContextOptions);
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>
-            { children}
+            { children }
         </ThemeContext.Provider>
     );
 }

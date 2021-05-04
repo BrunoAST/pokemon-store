@@ -1,3 +1,3 @@
 export const BrowserRoute = {
-    LIST: 'pokemon-list',
+    LIST: '/pokemon-list',
 };
