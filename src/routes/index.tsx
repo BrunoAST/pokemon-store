@@ -11,7 +11,7 @@ export default function RoutesContainer() {
     const url = useLocation().pathname;
     const { setTheme } = useTheme();
 
-    console.log(url);
+    console.log(process.env.REACT_APP_TYPE);
 
     useEffect(() => {
         switch (url) {
