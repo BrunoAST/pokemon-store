@@ -7,10 +7,10 @@ export type ThemeContextType = {
     setTheme: (Theme: EThemeContextOptions) => void;
 }
 
-const ThemeContext = createContext<ThemeContextType>({ theme: EThemeContextOptions.PokeFire, setTheme: theme => console.warn('no theme provided')});
+const ThemeContext = createContext<ThemeContextType>({ theme: EThemeContextOptions.FIRE, setTheme: theme => console.warn('no theme provided')});
 
 const ThemeProvider: React.FC<ReactNode> = ({ children }) => {
-    const [theme, setTheme] = useState(EThemeContextOptions.PokeFire);
+    const [theme, setTheme] = useState(EThemeContextOptions.FIRE);
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>
