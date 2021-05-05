@@ -19,6 +19,7 @@
 .input {
     border-radius: 15px;
     width: 100%;
+    padding: 10px 24px;
 }
 
 .input[placeholder] {
@@ -35,8 +36,8 @@
 }
 
 .searchIcon {
-    position: absolute;
-    right: 0;
+    width: 20px;
+    display: block;
 }
 
 .iconMobile {

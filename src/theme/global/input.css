@@ -2,7 +2,7 @@ input {
     border: none;
     border-color: transparent;
     background-color: white;
-    padding: 16px 24px;
+    padding: 8px 12px;
 }
 
 .input[placeholder] {

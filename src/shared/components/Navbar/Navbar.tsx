@@ -35,7 +35,11 @@ const Navbar: React.FC = () => {
                             right: '0'
                         }}
                     >
-                        <img src={theme?.images.icons.searchIco} alt="Ícone de pesquisa" />
+                        <img
+                            className={`${style.searchIcon}`}
+                            src={theme?.images.icons.searchIco}
+                            alt="Ícone de pesquisa"
+                        />
                     </Button>
                 </div>
             </nav>
