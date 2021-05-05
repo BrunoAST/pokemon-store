@@ -1,1 +1,6 @@
-@import './theme/water-pokemon/fire-store.css';
+@import './theme/global/reset.css';
+@import './theme/global/variables.css';
+@import './theme/global/color.css';
+@import './theme/global/input.css';
+@import './theme/global/screen.css';
+@import './theme/global/button.css';

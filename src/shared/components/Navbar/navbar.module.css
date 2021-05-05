@@ -1,0 +1,50 @@
+.header {
+    height: 80px;
+}
+
+.nav {
+    height: 100%;
+    width: 100%;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.linkHome {
+    display: flex;
+    gap: 12px;
+}
+
+.input {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.input[placeholder] {
+    font-size: 1rem;
+    color: #333;
+}
+
+.searchWrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 0;
+}
+
+@media(max-width: 959px) {
+    .nav {
+       padding: 0 20px;
+    }
+
+    .iconDesktop {
+        display: none;
+    }
+}
