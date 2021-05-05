@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import style from './navbar.module.css';
 import { BrowserRoute } from '../../constants/browser-route.const';
 import ProvideTheme from '../../helpers/ThemeProvider';
+import Button from '../Button/Button';
 
 const Navbar: React.FC = () => {
     const theme = ProvideTheme();
@@ -26,9 +27,16 @@ const Navbar: React.FC = () => {
                         type="text"
                         placeholder={theme?.searchInputText}
                     />
-                    <button className={`btn-icon ${style.searchIcon}`}>
-                        <img src={theme?.images.icons.searchIco} alt="Botão de pesquisa" />
-                    </button>
+                    <Button
+                        type="Icon"
+                        ariaLabel="Botão de pesquisa"
+                        style={{
+                            position: 'absolute',
+                            right: '0'
+                        }}
+                    >
+                        <img src={theme?.images.icons.searchIco} alt="Ícone de pesquisa" />
+                    </Button>
                 </div>
             </nav>
         </header>
