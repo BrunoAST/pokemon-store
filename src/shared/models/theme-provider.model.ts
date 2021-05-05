@@ -4,6 +4,7 @@ interface Icons {
 
 interface Images {
     logoIcon: string;
+    logoFull: string;
     icons: Icons;
 }
 
@@ -14,6 +15,5 @@ interface Colors {
 export interface ThemeProviderModel {
     colors: any;
     images: Images;
-    logo: string;
     searchInputText: string;
 }

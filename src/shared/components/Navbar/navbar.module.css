@@ -39,6 +39,14 @@
     right: 0;
 }
 
+.iconMobile {
+    display: none;
+}
+
+.iconDesktop {
+    display: block;
+}
+
 @media(max-width: 959px) {
     .nav {
        padding: 0 20px;
@@ -46,5 +54,9 @@
 
     .iconDesktop {
         display: none;
+    }
+
+    .iconMobile {
+        display: block;
     }
 }

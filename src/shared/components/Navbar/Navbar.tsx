@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import style from './navbar.module.css';
-import logoText from 'assets/global/LogoText.svg';
 import { BrowserRoute } from '../../constants/browser-route.const';
-import ProvideTheme from '../../helpers/ProvideTheme';
+import ProvideTheme from '../../helpers/ThemeProvider';
 
 const Navbar: React.FC = () => {
     const theme = ProvideTheme();
@@ -17,8 +16,8 @@ const Navbar: React.FC = () => {
                     to={BrowserRoute.HOME}
                     aria-label="Voltar para a página principal"
                 >
-                    <img src={theme?.images.logoIcon} alt="Logo" />
-                    <img className={`${style.iconDesktop}`} src={logoText} alt="Logo" />
+                    <img className={`${style.iconMobile}`} src={theme?.images.logoIcon} alt="Logo" />
+                    <img className={`${style.iconDesktop}`} src={theme?.images.logoFull} alt="Logo" />
                 </Link>
 
                 <div className={`${style.searchWrapper}`}>
