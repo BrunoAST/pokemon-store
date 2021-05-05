@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { EThemeContextOptions } from '../../context/enum/ThemeContextOptions';
 import { useTheme } from '../../context/Theme';
 
