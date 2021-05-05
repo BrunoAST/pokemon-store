@@ -50,7 +50,13 @@
 
 @media(max-width: 959px) {
     .nav {
-       padding: 0 20px;
+        padding: 0 10px;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .linkHome {
+        margin-top: 4px;
     }
 
     .iconDesktop {
