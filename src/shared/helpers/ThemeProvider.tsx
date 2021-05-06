@@ -35,6 +35,7 @@ export default function ProvideTheme() {
                 card: {
                     cardContainer: waterTypeCard.cardContainer,
                     priceContainer: waterTypeCard.priceContainer,
+                    titleContainer: waterTypeCard.titleContainer,
                 }
             },
             images: {
@@ -58,6 +59,7 @@ export default function ProvideTheme() {
                 card: {
                     cardContainer: fireTypeCard.cardContainer,
                     priceContainer: fireTypeCard.priceContainer,
+                    titleContainer: fireTypeCard.titleContainer,
                 }
             },
             images: {
@@ -81,6 +83,7 @@ export default function ProvideTheme() {
                 card: {
                     cardContainer: dragonTypeCard.cardContainer,
                     priceContainer: dragonTypeCard.priceContainer,
+                    titleContainer: dragonTypeCard.titleContainer,
                 }
             },
             images: {

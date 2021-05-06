@@ -18,9 +18,9 @@ const Card: React.FC<ICard> = ({ url }) => {
                 src={pokemonInformations?.sprites.front_default}
                 alt={pokemonInformations?.name}
             />
-            <p className={`${style.name}`}>
+            <h4 className={`${style.title} ${theme?.styles.card.titleContainer}`}>
                 {pokemonInformations?.name}
-            </p>
+            </h4>
             <span className={`${style.price} ${theme?.styles.card.priceContainer}`}>
                 {price && `R$ ${price}`}
             </span>

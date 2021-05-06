@@ -5,5 +5,10 @@
 }
 
 .priceContainer {
-    color: #333;
+    color: #333533;
+}
+
+.titleContainer {
+    font-weight: lighter;
+    color: #4c5c68;
 }
