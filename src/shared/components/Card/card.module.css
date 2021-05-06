@@ -2,6 +2,7 @@
     padding: 16px;
     width: 300px;
     cursor: pointer;
+    margin: 0 auto;
 }
 
 .image {
@@ -9,10 +10,6 @@
     display: block;
     margin: 0 auto;
 }
-
-/* .name, .price {
-    color: #333;
-} */
 
 .name {
     text-transform: capitalize;
@@ -24,4 +21,10 @@
 .price {
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+@media(max-width: 599px) {
+    .card {
+        width: 100%;
+    }
 }

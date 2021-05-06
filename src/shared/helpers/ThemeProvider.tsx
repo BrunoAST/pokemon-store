@@ -57,6 +57,7 @@ export default function ProvideTheme() {
             styles: {
                 card: {
                     cardContainer: fireTypeCard.cardContainer,
+                    priceContainer: fireTypeCard.priceContainer,
                 }
             },
             images: {
@@ -79,6 +80,7 @@ export default function ProvideTheme() {
             styles: {
                 card: {
                     cardContainer: dragonTypeCard.cardContainer,
+                    priceContainer: dragonTypeCard.priceContainer,
                 }
             },
             images: {
