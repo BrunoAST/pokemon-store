@@ -17,8 +17,8 @@ const Navbar: React.FC = () => {
                     to={BrowserRoute.HOME}
                     aria-label="Voltar para a página principal"
                 >
-                    <img className={`${style.iconMobile}`} src={theme?.images.logoIcon} alt="Logo" />
-                    <img className={`${style.iconDesktop}`} src={theme?.images.logoFull} alt="Logo" />
+                    <img className={`${style.logo} ${style.iconMobile}`} src={theme?.images.logoIcon} alt="Logo" />
+                    <img className={`${style.logo} ${style.iconDesktop}`} src={theme?.images.logoFull} alt="Logo" />
                 </Link>
 
                 <div className={`${style.searchWrapper}`}>

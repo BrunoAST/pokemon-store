@@ -6,7 +6,7 @@
 }
 
 .image {
-    width: 100px;
+    width: 200px;
     display: block;
     margin: 0 auto;
 }
@@ -24,7 +24,7 @@
 }
 
 @media(max-width: 599px) {
-    .card {
+   .card {
         width: 100%;
     }
 }
