@@ -1,0 +1,97 @@
+.card {
+    width: 300px;
+    height: 300px;
+    background: #e0e0e0;
+    position: relative;
+    border-radius: 10px;
+}
+
+.square, .line, .rectangle {
+    background-color: rgba(94, 94, 94, 0.2);
+}
+
+.square {
+    position: absolute;
+    width: 130px;
+    height: 100px;
+    border-radius: 10px;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+}
+
+.line {
+    position: absolute;
+    width: 80%;
+    height: 15px;
+    top: 45%;
+    right: 10%;
+    border-radius: 10px;
+}
+
+.line:nth-child(2) {
+    top: 55%;
+}
+
+.line:nth-child(3) {
+    top: 65%;
+}
+
+.rectangle {
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    right: 50%;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, 20%);
+}
+
+/* .card:empty {
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    
+    background-image:
+        linear-gradient(lightgray , transparent 0) 50% 50% / 8em 8em,
+        linear-gradient(lightgray 20px, transparent 0),
+        radial-gradient( circle 50px at 50px 50px, lightgray 99%, transparent 0 ),
+        linear-gradient( 100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80% ),
+        linear-gradient( lightgray 20px, transparent 0 ),
+        linear-gradient( lightgray 20px, transparent 0 ),
+        linear-gradient( lightgray 20px, transparent 0 ),
+        linear-gradient( lightgray 20px, transparent 0 );
+
+    background-repeat: repeat-y;
+
+    background-size:
+        100px 200px, 
+        50px 200px, 
+        150px 200px,
+        350px 200px,
+        300px 200px,
+        250px 200px;
+
+    background-position:
+        0 0, 
+        0 0, 
+        120px 0,
+        120px 40px,
+        120px 80px,
+        120px 120px;
+
+    animation: shine 1s infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position:
+            0 0,
+            100% 0, 
+            120px 0,
+            120px 40px,
+            120px 80px,
+            120px 120px;
+    }
+} */
