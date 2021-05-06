@@ -15,6 +15,7 @@ interface Colors {
 interface Styles {
     card: {
         cardContainer: string;
+        priceContainer: string;
     }
 }
 

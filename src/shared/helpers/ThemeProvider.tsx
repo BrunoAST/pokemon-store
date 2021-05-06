@@ -7,6 +7,7 @@ import { ThemeProviderModel } from 'shared/models/theme-provider.model';
 import waterTypeLogo from 'assets/water/logo/LogoType.svg';
 import waterTypeLogoFull from 'assets/water/logo/LogoFull.svg';
 import waterTypeColors from 'theme/water/color.module.css';
+import waterTypeCard from 'theme/water/card.module.css';
 import waterTypeSearchIcon from 'assets/water/icons/Search.svg';
 
 import fireTypeLogo from 'assets/fire/logo/LogoType.svg';
@@ -26,8 +27,15 @@ export default function ProvideTheme() {
 
     if (theme === EThemeContextOptions.WATER) {
         return {
+            baseApiUrl: `${ApiUrl}/type/11`,
             colors: {
                 primaryBg: waterTypeColors.primaryBg
+            },
+            styles: {
+                card: {
+                    cardContainer: waterTypeCard.cardContainer,
+                    priceContainer: waterTypeCard.priceContainer,
+                }
             },
             images: {
                 logoIcon: waterTypeLogo,

@@ -1,0 +1,10 @@
+.cardContainer {
+    background-color: white;
+    border-radius: 30px;
+    margin-bottom: .5rem;
+    padding: 5px;
+}
+
+.priceContainer {
+    color: #1D4E89;
+}

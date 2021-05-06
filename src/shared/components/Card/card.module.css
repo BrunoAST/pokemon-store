@@ -10,9 +10,9 @@
     margin: 0 auto;
 }
 
-.name, .price {
+/* .name, .price {
     color: #333;
-}
+} */
 
 .name {
     text-transform: capitalize;

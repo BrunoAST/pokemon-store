@@ -33,7 +33,7 @@ const Card: React.FC<ICard> = ({ url }) => {
             <p className={`${style.name}`}>
                 {pokemonInformations?.name}
             </p>
-            <span className={`${style.price}`}>
+            <span className={`${style.price} ${theme?.styles.card.priceContainer}`}>
                 {price && `R$ ${price}`}
             </span>
         </article>
