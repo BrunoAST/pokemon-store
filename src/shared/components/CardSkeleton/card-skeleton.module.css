@@ -48,50 +48,16 @@
     transform: translate(-50%, 20%);
 }
 
-/* .card:empty {
-    margin: auto;
-    width: 300px;
-    height: 300px;
-    
-    background-image:
-        linear-gradient(lightgray , transparent 0) 50% 50% / 8em 8em,
-        linear-gradient(lightgray 20px, transparent 0),
-        radial-gradient( circle 50px at 50px 50px, lightgray 99%, transparent 0 ),
-        linear-gradient( 100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80% ),
-        linear-gradient( lightgray 20px, transparent 0 ),
-        linear-gradient( lightgray 20px, transparent 0 ),
-        linear-gradient( lightgray 20px, transparent 0 ),
-        linear-gradient( lightgray 20px, transparent 0 );
-
-    background-repeat: repeat-y;
-
-    background-size:
-        100px 200px, 
-        50px 200px, 
-        150px 200px,
-        350px 200px,
-        300px 200px,
-        250px 200px;
-
-    background-position:
-        0 0, 
-        0 0, 
-        120px 0,
-        120px 40px,
-        120px 80px,
-        120px 120px;
-
-    animation: shine 1s infinite;
-}
-
-@keyframes shine {
-    to {
-        background-position:
-            0 0,
-            100% 0, 
-            120px 0,
-            120px 40px,
-            120px 80px,
-            120px 120px;
+@media(max-width: 599px) {
+    .card {
+        width: 100%;
     }
-} */
+
+    .line {
+        width: 80%;
+    }
+
+    .rectangle {
+        width: 50%;
+    }
+}

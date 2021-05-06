@@ -13,21 +13,22 @@ const Card: React.FC<ICard> = ({ url }) => {
     const price = useNameToPrice(pokemonInformations?.name);
 
     return (
-        isLoading
-            ? <CardSkeleton />
-            : <article className={`${style.card} ${theme?.styles.card.cardContainer}`}>
-                <img
-                    className={`${style.image}`}
-                    src={pokemonInformations?.sprites.front_default}
-                    alt={pokemonInformations?.name}
-                />
-                <h4 className={`${style.title} ${theme?.styles.card.titleContainer}`}>
-                    {pokemonInformations?.name}
-                </h4>
-                <span className={`${style.price} ${theme?.styles.card.priceContainer}`}>
-                    {price && `R$ ${price}`}
-                </span>
-            </article>
+        <CardSkeleton />
+        // isLoading
+        //     ? <CardSkeleton />
+        //     : <article className={`${style.card} ${theme?.styles.card.cardContainer}`}>
+        //         <img
+        //             className={`${style.image}`}
+        //             src={pokemonInformations?.sprites.front_default}
+        //             alt={pokemonInformations?.name}
+        //         />
+        //         <h4 className={`${style.title} ${theme?.styles.card.titleContainer}`}>
+        //             {pokemonInformations?.name}
+        //         </h4>
+        //         <span className={`${style.price} ${theme?.styles.card.priceContainer}`}>
+        //             {price && `R$ ${price}`}
+        //         </span>
+        //     </article>
     );
 }
 
