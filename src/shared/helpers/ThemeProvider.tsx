@@ -12,6 +12,7 @@ import waterTypeSearchIcon from 'assets/water/icons/Search.svg';
 import fireTypeLogo from 'assets/fire/logo/LogoType.svg';
 import fireTypeLogoFull from 'assets/fire/logo/LogoFull.svg';
 import fireTypeColors from 'theme/fire/color.module.css';
+import fireTypeCard from 'theme/fire/card.module.css';
 import fireTypeSearchIcon from 'assets/fire/icons/Search.svg';
 
 import dragonTypeLogo from 'assets/dragon/logo/LogoType.svg';
@@ -41,8 +42,14 @@ export default function ProvideTheme() {
 
     if (theme === EThemeContextOptions.FIRE) {
         return {
+            baseApiUrl: `${ApiUrl}/type/10`,
             colors: {
                 primaryBg: fireTypeColors.primaryBg
+            },
+            styles: {
+                card: {
+                    cardContainer: fireTypeCard.cardContainer,
+                }
             },
             images: {
                 logoIcon: fireTypeLogo,
