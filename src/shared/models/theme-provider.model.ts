@@ -9,11 +9,19 @@ interface Images {
 }
 
 interface Colors {
-    primary: string;
+    primaryBg: string;
+}
+
+interface Styles {
+    card: {
+        cardContainer: string;
+    }
 }
 
 export interface ThemeProviderModel {
-    colors: any;
+    colors: Colors;
+    styles: Styles;
     images: Images;
     searchInputText: string;
+    baseApiUrl: string;
 }

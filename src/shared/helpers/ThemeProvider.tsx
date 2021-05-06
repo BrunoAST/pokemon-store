@@ -1,5 +1,6 @@
 import { EThemeContextOptions } from '../../context/enum/ThemeContextOptions';
 import { useTheme } from '../../context/Theme';
+import { ApiUrl } from 'environment/api';
 
 import { ThemeProviderModel } from 'shared/models/theme-provider.model';
 
@@ -16,6 +17,7 @@ import fireTypeSearchIcon from 'assets/fire/icons/Search.svg';
 import dragonTypeLogo from 'assets/dragon/logo/LogoType.svg';
 import dragonTypeLogoFull from 'assets/dragon/logo/LogoFull.svg';
 import dragonTypeColors from 'theme/dragon/color.module.css';
+import dragonTypeCard from 'theme/dragon/card.module.css';
 import dragonTypeSearchIcon from 'assets/dragon/icons/Search.svg';
 
 export default function ProvideTheme() {
@@ -23,7 +25,9 @@ export default function ProvideTheme() {
 
     if (theme === EThemeContextOptions.WATER) {
         return {
-            colors: waterTypeColors,
+            colors: {
+                primaryBg: waterTypeColors.primaryBg
+            },
             images: {
                 logoIcon: waterTypeLogo,
                 logoFull: waterTypeLogoFull,
@@ -37,7 +41,9 @@ export default function ProvideTheme() {
 
     if (theme === EThemeContextOptions.FIRE) {
         return {
-            colors: fireTypeColors,
+            colors: {
+                primaryBg: fireTypeColors.primaryBg
+            },
             images: {
                 logoIcon: fireTypeLogo,
                 logoFull: fireTypeLogoFull,
@@ -51,7 +57,15 @@ export default function ProvideTheme() {
 
     if (theme === EThemeContextOptions.DRAGON) {
         return {
-            colors: dragonTypeColors,
+            baseApiUrl: `${ApiUrl}/type/16`,
+            colors: {
+                primaryBg: dragonTypeColors.primaryBg
+            },
+            styles: {
+                card: {
+                    cardContainer: dragonTypeCard.cardContainer,
+                }
+            },
             images: {
                 logoIcon: dragonTypeLogo,
                 logoFull: dragonTypeLogoFull,

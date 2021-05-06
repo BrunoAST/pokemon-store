@@ -8,6 +8,7 @@ import { BrowserRoute } from '../shared/constants/browser-route.const';
 export default function RoutesContainer() {
     return (
         <Routes>
+            {/* ADD CART CONTEXT BETWEEN HOME AND CARD ROUTES */}
             <Route path={BrowserRoute.HOME} element={<Home />} />
             <Route path="*" element={<NotFound />} />
         </Routes>

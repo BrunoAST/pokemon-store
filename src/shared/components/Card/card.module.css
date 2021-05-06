@@ -1,0 +1,27 @@
+.card {
+    padding: 16px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.image {
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.name, .price {
+    color: #333;
+}
+
+.name {
+    text-transform: capitalize;
+    font-size: 2rem;
+    text-align: start;
+    padding-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 600;
+}

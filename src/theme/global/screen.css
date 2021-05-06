@@ -1,3 +1,5 @@
 .container {
     max-width: var(--gt-xs);
+    margin: 0 auto;
+    padding: 2rem 0;
 }
