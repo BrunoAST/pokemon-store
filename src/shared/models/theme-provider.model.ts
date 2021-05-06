@@ -17,6 +17,9 @@ interface Styles {
         cardContainer: string;
         titleContainer: string;
         priceContainer: string;
+    },
+    button: {
+        buttonContainer: string;
     }
 }
 

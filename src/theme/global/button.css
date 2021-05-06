@@ -1,8 +1,30 @@
 button {
+    overflow: hidden;
     border: none;
     background-color: white;
     padding: 8px;
     cursor: pointer;
+    position: relative;
+    transition: transform 300ms ease;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    background-color: #EEE;
+    padding: 50%;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transition: transform 500ms, opacity 500ms;
+}
+
+button:active::before {
+    transition: 0s;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
 }
 
 .btn-icon {

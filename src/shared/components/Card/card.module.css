@@ -1,7 +1,8 @@
 .card {
+    display: flex;
+    flex-direction: column;
     padding: 16px;
     width: 300px;
-    cursor: pointer;
     margin: 0 auto;
 }
 
@@ -21,6 +22,7 @@
 .price {
     font-size: 1.5rem;
     font-weight: 600;
+    padding-bottom: 1rem;
 }
 
 @media(max-width: 599px) {

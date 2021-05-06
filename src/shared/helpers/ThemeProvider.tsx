@@ -8,18 +8,21 @@ import waterTypeLogo from 'assets/water/logo/LogoType.svg';
 import waterTypeLogoFull from 'assets/water/logo/LogoFull.svg';
 import waterTypeColors from 'theme/water/color.module.css';
 import waterTypeCard from 'theme/water/card.module.css';
+import waterTypeButton from 'theme/water/button.module.css';
 import waterTypeSearchIcon from 'assets/water/icons/Search.svg';
 
 import fireTypeLogo from 'assets/fire/logo/LogoType.svg';
 import fireTypeLogoFull from 'assets/fire/logo/LogoFull.svg';
 import fireTypeColors from 'theme/fire/color.module.css';
 import fireTypeCard from 'theme/fire/card.module.css';
+import fireTypeButton from 'theme/fire/button.module.css';
 import fireTypeSearchIcon from 'assets/fire/icons/Search.svg';
 
 import dragonTypeLogo from 'assets/dragon/logo/LogoType.svg';
 import dragonTypeLogoFull from 'assets/dragon/logo/LogoFull.svg';
 import dragonTypeColors from 'theme/dragon/color.module.css';
 import dragonTypeCard from 'theme/dragon/card.module.css';
+import dragonTypeButton from 'theme/dragon/button.module.css';
 import dragonTypeSearchIcon from 'assets/dragon/icons/Search.svg';
 
 export default function ProvideTheme() {
@@ -36,6 +39,9 @@ export default function ProvideTheme() {
                     cardContainer: waterTypeCard.cardContainer,
                     priceContainer: waterTypeCard.priceContainer,
                     titleContainer: waterTypeCard.titleContainer,
+                },
+                button: {
+                    buttonContainer: waterTypeButton.buttonContainer,
                 }
             },
             images: {
@@ -60,6 +66,9 @@ export default function ProvideTheme() {
                     cardContainer: fireTypeCard.cardContainer,
                     priceContainer: fireTypeCard.priceContainer,
                     titleContainer: fireTypeCard.titleContainer,
+                },
+                button: {
+                    buttonContainer: fireTypeButton.buttonContainer,
                 }
             },
             images: {
@@ -84,6 +93,9 @@ export default function ProvideTheme() {
                     cardContainer: dragonTypeCard.cardContainer,
                     priceContainer: dragonTypeCard.priceContainer,
                     titleContainer: dragonTypeCard.titleContainer,
+                },
+                button: {
+                    buttonContainer: dragonTypeButton.buttonContainer,
                 }
             },
             images: {
