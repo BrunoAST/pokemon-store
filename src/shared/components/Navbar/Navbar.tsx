@@ -28,6 +28,7 @@ const Navbar: React.FC = () => {
                 <Link
                     className={`${style.linkHome}`}
                     to={BrowserRoute.HOME}
+                    onClick={() => setFilter('')}
                     aria-label="Voltar para a página principal"
                 >
                     <img className={`${style.logo} ${style.iconMobile}`} src={theme?.images.logoIcon} alt="Logo" />

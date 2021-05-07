@@ -5,14 +5,16 @@ import ProvideTheme from 'shared/helpers/ThemeProvider';
 import Card from '../Card/Card';
 import useListPokemon from 'shared/hooks/useListPokemon';
 import IPokemonBase from 'shared/interfaces/pokemon-base.interface';
+import { useParams } from 'react-router-dom';
 
-const List: React.FC<{ filter: any }> = ({ filter }) => {
+const List: React.FC = () => {
     const theme = ProvideTheme();
+    const { filter } = useParams();
     const [filtered, setFiltered] = useState<IPokemonBase[] | undefined>();
     const { pokemonBase } = useListPokemon(theme?.baseApiUrl);
 
     useEffect(() => {
-        const a = () => {
+        const filterList = () => {
             if (!filter || !filter?.trim()) {
                 setFiltered([]);
                 return;
@@ -22,7 +24,7 @@ const List: React.FC<{ filter: any }> = ({ filter }) => {
             setFiltered(res);
         }
 
-        a();
+        filterList();
     }, [filter, pokemonBase, setFiltered]);
 
     return (

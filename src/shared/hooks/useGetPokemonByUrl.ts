@@ -10,7 +10,10 @@ const useGetPokemonByUrl = (url: any) => {
     useEffect(() => {
         function getPokemonByUrl() {
             ListHttpService.getPokemonByUrl(url)
-                .then(res => setPokemonInformations(res.data))
+                .then(res => {
+                    setPokemonInformations({ name: '', sprites: { front_default: '' } });
+                    setPokemonInformations(res.data);
+                })
                 .finally(() => setIsLoading(false));
         }
 
