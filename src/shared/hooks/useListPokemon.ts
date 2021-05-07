@@ -7,8 +7,8 @@ const useListPokemon = (baseApiUrl: any) => {
     const [pokemonBase, setPokemonBase] = useState<IPokemonBase[]>();
 
     useEffect(() => {
-        async function listPokemon() {
-            await ListHttpService.listPokemonByType(baseApiUrl)
+        function listPokemon() {
+            ListHttpService.listPokemonByType(baseApiUrl)
                 .then(res => {
                     setPokemonBase([]);
                     setPokemonBase(res.data.pokemon);
@@ -20,7 +20,7 @@ const useListPokemon = (baseApiUrl: any) => {
         return () => { }
     }, [baseApiUrl]);
 
-    return { pokemonBase }
+    return { pokemonBase, setPokemonBase }
 }
 
 export default useListPokemon;

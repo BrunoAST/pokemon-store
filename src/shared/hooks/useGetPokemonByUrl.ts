@@ -8,8 +8,8 @@ const useGetPokemonByUrl = (url: any) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        async function getPokemonByUrl() {
-            await ListHttpService.getPokemonByUrl(url)
+        function getPokemonByUrl() {
+            ListHttpService.getPokemonByUrl(url)
                 .then(res => setPokemonInformations(res.data))
                 .finally(() => setIsLoading(false));
         }

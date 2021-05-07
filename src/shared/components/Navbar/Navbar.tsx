@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
 
         if (!filter || !filter?.trim()) {
             navigate(`${BrowserRoute.HOME}`);
+            return;
         }
 
         navigate(`${BrowserRoute.HOME}/${filter}`);
