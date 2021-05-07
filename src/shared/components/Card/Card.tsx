@@ -19,10 +19,11 @@ const Card: React.FC<ICard> = ({ url }) => {
             : <article className={`${style.card} ${theme?.styles.card.cardContainer}`}>
                 <img
                     className={`${style.image}`}
+                    loading="lazy"
                     src={pokemonInformations?.sprites.front_default}
                     alt={pokemonInformations?.name}
                 />
-                
+
                 <h4 className={`${style.title} ${theme?.styles.card.titleContainer}`}>
                     {pokemonInformations?.name}
                 </h4>
@@ -32,7 +33,7 @@ const Card: React.FC<ICard> = ({ url }) => {
                 </span>
 
                 <Button
-                    click={() => {}}
+                    click={() => { }}
                     ariaLabel="Adicionar no carrinho"
                     type="Label"
                 >
