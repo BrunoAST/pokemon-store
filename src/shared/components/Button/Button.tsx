@@ -4,7 +4,7 @@ import ProvideTheme from 'shared/helpers/ThemeProvider';
 import styleModule from './button.module.css';
 import IButton from './interface/button.interface';
 
-const Button: React.FC<IButton> = ({ type, ariaLabel, style, children }) => {
+const Button: React.FC<IButton> = ({ click, type, ariaLabel, style, children }) => {
     const theme = ProvideTheme();
 
     function defineStyle(): string {
@@ -20,6 +20,7 @@ const Button: React.FC<IButton> = ({ type, ariaLabel, style, children }) => {
             className={`${defineStyle()} ${defineTypeStyle()}`}
             aria-label={ariaLabel}
             style={style}
+            onClick={click}
         >
             { children }
         </button>

@@ -9,7 +9,10 @@ const useListPokemon = (baseApiUrl: any) => {
     useEffect(() => {
         async function listPokemon() {
             await ListHttpService.listPokemonByType(baseApiUrl)
-                .then(res => setPokemonBase(res.data.pokemon));
+                .then(res => {
+                    setPokemonBase([]);
+                    setPokemonBase(res.data.pokemon);
+                });
         }
 
         listPokemon();

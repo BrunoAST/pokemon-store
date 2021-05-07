@@ -32,6 +32,7 @@ const Card: React.FC<ICard> = ({ url }) => {
                 </span>
 
                 <Button
+                    click={() => {}}
                     ariaLabel="Adicionar no carrinho"
                     type="Label"
                 >

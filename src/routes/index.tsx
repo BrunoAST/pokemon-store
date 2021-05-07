@@ -9,7 +9,10 @@ export default function RoutesContainer() {
     return (
         <Routes>
             {/* ADD CART CONTEXT BETWEEN HOME AND CARD ROUTES */}
-            <Route path={BrowserRoute.HOME} element={<Home />} />
+            <Route path={BrowserRoute.HOME}>
+                <Route path={BrowserRoute.HOME} element={<Home />} />
+                <Route path={BrowserRoute.HOME_FILTER} element={<Home />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

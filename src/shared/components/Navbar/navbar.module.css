@@ -16,9 +16,13 @@
     gap: 12px;
 }
 
-.input {
-    border-radius: 15px;
+form {
     width: 100%;
+}
+
+.input {
+    width: 100%;
+    border-radius: 15px;
     padding: 10px 24px;
 }
 

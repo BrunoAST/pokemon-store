@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import style from './navbar.module.css';
 import { BrowserRoute } from '../../constants/browser-route.const';
@@ -7,7 +7,19 @@ import ProvideTheme from '../../helpers/ThemeProvider';
 import Button from '../Button/Button';
 
 const Navbar: React.FC = () => {
+    const [filter, setFilter] = useState<string>('');
     const theme = ProvideTheme();
+    const navigate = useNavigate();
+
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
+        event.preventDefault();
+
+        if (!filter || !filter?.trim()) {
+            navigate(`${BrowserRoute.HOME}`);
+        }
+
+        navigate(`${BrowserRoute.HOME}/${filter}`);
+    }
 
     return (
         <header className={`${style.header} ${theme?.colors.primaryBg}`}>
@@ -22,12 +34,17 @@ const Navbar: React.FC = () => {
                 </Link>
 
                 <div className={`${style.searchWrapper}`}>
-                    <input
-                        className={style.input}
-                        type="text"
-                        placeholder={theme?.searchInputText}
-                    />
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            className={style.input}
+                            type="text"
+                            placeholder={theme?.searchInputText}
+                            onChange={(event) => setFilter(event.target.value)}
+                            value={filter}
+                        />
+                    </form>
                     <Button
+                        click={(event) => handleSubmit(event)}
                         type="Icon"
                         ariaLabel="Botão de pesquisa"
                         style={{
