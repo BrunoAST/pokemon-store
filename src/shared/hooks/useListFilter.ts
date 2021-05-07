@@ -16,7 +16,7 @@ const useListFilter = (pokemonBase?: IPokemonBase[]) => {
                 return;
             }
 
-            const res = pokemonBase?.filter(a => a.pokemon.name.trim().toLowerCase().includes(filter));
+            const res = pokemonBase?.filter(item => item.pokemon.name.trim().toLowerCase().includes(filter.trim().toLowerCase()));
             setFiltered(res);
             setIsFiltered(true);
         }
