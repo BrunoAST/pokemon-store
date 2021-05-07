@@ -31,7 +31,13 @@ const Navbar: React.FC = () => {
                     onClick={() => setFilter('')}
                     aria-label="Voltar para a página principal"
                 >
-                    <img className={`${style.icon} ${style.iconMobile}`} src={theme?.images.logoIcon} alt="Logo" />
+                    <img
+                        className={`${style.icon} ${style.iconMobile}`}
+                        src={theme?.images.logoIcon}
+                        alt="Logo"
+                        width="150px"
+                        height="50px"                
+                    />
                     <img className={`${style.icon} ${style.iconDesktop}`} src={theme?.images.logoFull} alt="Logo" />
                 </Link>
 
@@ -58,6 +64,8 @@ const Navbar: React.FC = () => {
                             className={`${style.searchIcon}`}
                             src={theme?.images.icons.searchIco}
                             alt="Ícone de pesquisa"
+                            width="20px"
+                            height="20px"
                         />
                     </Button>
                 </div>

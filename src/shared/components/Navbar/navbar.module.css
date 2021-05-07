@@ -40,7 +40,6 @@ form {
 }
 
 .searchIcon {
-    width: 20px;
     display: block;
 }
 
@@ -68,7 +67,6 @@ form {
     }
 
     .icon {
-        width: 150px;
         padding: 8px;
     }
 
