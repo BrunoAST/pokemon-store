@@ -19,6 +19,8 @@ const Card: React.FC<ICard> = ({ url }) => {
             : <article className={`${style.card} ${theme?.styles.card.cardContainer}`}>
                 <img
                     className={`${style.image}`}
+                    width="200px"
+                    height="200px"
                     loading="lazy"
                     src={pokemonInformations?.sprites.front_default}
                     alt={pokemonInformations?.name}
