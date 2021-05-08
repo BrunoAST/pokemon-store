@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProvideTheme from 'shared/helpers/ThemeProvider';
+import ProvideTheme from 'shared/provider/ThemeProvider';
 import styleModule from './button.module.css';
 import IButton from './interface/button.interface';
 

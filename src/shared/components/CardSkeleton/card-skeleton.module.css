@@ -4,6 +4,7 @@
     background: #e0e0e0;
     position: relative;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 .square, .line, .rectangle {

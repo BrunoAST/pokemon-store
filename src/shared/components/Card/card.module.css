@@ -24,6 +24,12 @@
     padding-bottom: 1rem;
 }
 
+@media(max-width: 959px) {
+    .card {
+        width: 360px;
+    }
+}
+
 @media(max-width: 599px) {
    .card {
         width: 100%;

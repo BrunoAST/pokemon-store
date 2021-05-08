@@ -1,5 +1,5 @@
-import { EThemeContextOptions } from '../../context/enum/ThemeContextOptions';
-import { useTheme } from '../../context/Theme';
+import { EThemeContextOptions } from 'context/theme/enum/ThemeContextOptions';
+import { useTheme } from '../../context/theme/ThemeContext';
 import { ApiUrl } from 'environment/api';
 
 import { ThemeProviderModel } from 'shared/models/theme-provider.model';

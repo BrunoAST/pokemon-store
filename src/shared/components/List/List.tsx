@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
 import style from './list.module.css';
-import ProvideTheme from 'shared/helpers/ThemeProvider';
+import ProvideTheme from 'shared/provider/ThemeProvider';
 import Card from '../Card/Card';
 import useListPokemon from 'shared/hooks/useListPokemon';
 import EmptyList from '../EmptyList/EmptyList';

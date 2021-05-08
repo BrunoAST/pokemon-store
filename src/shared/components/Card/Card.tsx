@@ -1,17 +1,32 @@
 import React, { memo } from 'react';
 
 import style from './card.module.css';
-import ProvideTheme from 'shared/helpers/ThemeProvider';
+import ProvideTheme from 'shared/provider/ThemeProvider';
 import ICard from './interfaces/card.interface';
 import useNameToPrice from 'shared/hooks/useNameToPrice';
 import useGetPokemonByUrl from 'shared/hooks/useGetPokemonByUrl';
 import CardSkeleton from '../CardSkeleton/CardSkeleton';
 import Button from '../Button/Button';
+import { useCartItem } from 'context/cart/CartContext';
+import IPokemonCart from 'shared/interfaces/pokemon-cart.interface';
+import priceToCurrency from 'shared/transformers/currenct-to-currency';
 
 const Card: React.FC<ICard> = ({ url }) => {
     const theme = ProvideTheme();
     const { pokemonInformations, isLoading } = useGetPokemonByUrl(url);
     const price = useNameToPrice(pokemonInformations?.name);
+    const { cartItem, setCartItem } = useCartItem();
+
+    function addItemToCart(): void {
+        const item: IPokemonCart = {
+            imageUrl: pokemonInformations?.sprites.front_default,
+            name: pokemonInformations?.name,
+            price: Number(price)
+        };
+        const items = [...cartItem, item]
+        
+        setCartItem(items);
+    }
 
     return (
         isLoading
@@ -31,11 +46,11 @@ const Card: React.FC<ICard> = ({ url }) => {
                 </h4>
 
                 <span className={`${style.price} ${theme?.styles.card.priceContainer}`}>
-                    {price && `R$ ${price}`}
+                    {price && priceToCurrency(price)}
                 </span>
 
                 <Button
-                    click={() => { }}
+                    click={() => addItemToCart()}
                     ariaLabel="Adicionar no carrinho"
                     type="Label"
                 >

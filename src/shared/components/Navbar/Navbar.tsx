@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import style from './navbar.module.css';
 import { BrowserRoute } from '../../constants/browser-route.const';
-import ProvideTheme from '../../helpers/ThemeProvider';
+import ProvideTheme from '../../provider/ThemeProvider';
 import Button from '../Button/Button';
+import Cart from '../Cart/Cart';
 
 const Navbar: React.FC = () => {
     const [filter, setFilter] = useState<string>('');
@@ -40,6 +41,8 @@ const Navbar: React.FC = () => {
                     />
                     <img className={`${style.icon} ${style.iconDesktop}`} src={theme?.images.logoFull} alt="Logo" />
                 </Link>
+
+                <Cart />
 
                 <div className={`${style.searchWrapper}`}>
                     <form onSubmit={handleSubmit}>

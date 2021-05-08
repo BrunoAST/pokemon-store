@@ -1,7 +1,7 @@
-const useNameToPrice = (name: any) => {
+const useNameToPrice = (name?: string) => {
     if (!name) return;
 
-    const price = (name.length * 10).toFixed(2).replace('.', ',');
+    const price = (name.length * 10);
 
     return price;
 };
