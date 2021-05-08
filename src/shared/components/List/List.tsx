@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import style from './list.module.css';
 import ProvideTheme from 'shared/helpers/ThemeProvider';
@@ -41,4 +41,4 @@ const List: React.FC = () => {
     );
 }
 
-export default List;
+export default memo(List);

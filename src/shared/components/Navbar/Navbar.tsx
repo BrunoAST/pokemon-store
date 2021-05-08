@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import style from './navbar.module.css';
@@ -74,4 +74,4 @@ const Navbar: React.FC = () => {
     );
 }
 
-export default Navbar;
+export default memo(Navbar);

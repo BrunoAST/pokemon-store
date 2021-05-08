@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import style from './card.module.css';
 import ProvideTheme from 'shared/helpers/ThemeProvider';
@@ -45,4 +45,4 @@ const Card: React.FC<ICard> = ({ url }) => {
     );
 }
 
-export default Card;
+export default memo(Card);
