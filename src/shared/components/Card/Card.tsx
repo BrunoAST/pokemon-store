@@ -62,7 +62,7 @@ const Card: React.FC<ICard> = ({ url }) => {
                     {pokemonInformations?.name}
                 </h4>
 
-                <span className={`${style.price} ${themeProvider?.styles.card.priceContainer}`}>
+                <span data-cy="cardPrice" className={`${style.price} ${themeProvider?.styles.card.priceContainer}`}>
                     {price && priceToCurrency(price)}
                 </span>
 
@@ -70,6 +70,7 @@ const Card: React.FC<ICard> = ({ url }) => {
                     click={() => addItemToCart()}
                     ariaLabel="Adicionar no carrinho"
                     type="Label"
+                    dataCy="cardButton"
                     hasRipple={true}
                 >
                     Adicionar no carrinho

@@ -5,6 +5,10 @@ beforeEach(() => {
 });
 
 describe('List', () => {
+    it('Should contain a placeholder on filter input', () => {
+        cy.get('form > input[placeholder]').should('have.attr', 'placeholder', 'Qual pokémon está procurando?'.trim());
+    });
+
     it('Should filter the list when type ()', () => {
         cy.get('[data-cy=searchBar]').type('BLAS');
         cy.get('[data-cy=searchButton]').click();
@@ -16,7 +20,15 @@ describe('List', () => {
         cy.get('[data-cy=searchBar]').type('asdastdfsiydfgsaydfsaud');
         cy.get('[data-cy=searchButton]').click();
 
-         cy.get('[data-cy=messageEmpty1]').should('equal', 'O filtro de pesquisa informado não encontrou nenhum resultado');
-         cy.get('[data-cy=messageEmpty2]').should('equal', 'Tente novamente com outros valores');
+        cy.get('[data-cy=messageEmpty1]').should('contain', 'O filtro de pesquisa informado não encontrou nenhum resultado');
+        cy.get('[data-cy=messageEmpty2]').should('contain', 'Tente novamente com outros valores');
+    });
+
+    it('Should contain a label in card button', () => {
+        cy.get('[data-cy=cardButton]').should('contain', 'Adicionar no carrinho'.trim());
+    });
+
+    it('Should contain R$ at the card price', () => {
+        cy.get('[data-cy=cardPrice]').should('contain', 'R$');
     });
 });
