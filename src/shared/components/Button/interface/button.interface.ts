@@ -8,4 +8,5 @@ export default interface IButton {
     click: (event: any) => void;
     hasRipple?: boolean;
     style?: React.CSSProperties;
+    dataCy?: string;
 }

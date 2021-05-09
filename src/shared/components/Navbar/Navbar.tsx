@@ -50,6 +50,7 @@ const Navbar: React.FC = () => {
                         <input
                             className={style.input}
                             type="text"
+                            data-cy="searchBar"
                             placeholder={theme?.searchInputText}
                             onChange={(event) => setFilter(event.target.value)}
                             value={filter}
@@ -81,6 +82,7 @@ const Navbar: React.FC = () => {
                         hasRipple={true}
                         type="Label"
                         ariaLabel="Exibir carrinho"
+                        dataCy="searchButton"
                         style={{
                             backgroundColor: 'transparent',
                             display: 'flex',

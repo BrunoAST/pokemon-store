@@ -13,7 +13,7 @@ const List: React.FC = () => {
     const { filtered, isFiltered } = useListFilter(pokemonBase);
 
     return (
-        <ul className={`container ${style.listContainer}`}>
+        <ul data-cy="pokemonList" className={`container ${style.listContainer}`}>
             {
                 (isFiltered && !filtered?.length)
                     ?
