@@ -1,5 +1,6 @@
 .header {
     height: 80px;
+    z-index: 10;
 }
 
 .nav {
@@ -34,7 +35,7 @@ form {
 .searchWrapper {
     position: relative;
     height: 100%;
-    width: 100%;
+    width: 70%;
     align-items: center;
     display: flex;
 }
@@ -58,12 +59,18 @@ form {
 
     .nav {
         padding: 0 10px;
-        flex-direction: column;
-        gap: 2px;
+        display: block;
     }
 
-    .linkHome {
-        margin-top: 4px;
+    .searchWrapper {
+        height: auto;
+        width: 100%;
+    }
+
+    .cartButton {
+        position: absolute;
+        top: 0;
+        right: 10px;
     }
 
     .icon {

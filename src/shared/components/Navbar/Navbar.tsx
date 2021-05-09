@@ -9,6 +9,7 @@ import Cart from '../Cart/Cart';
 
 const Navbar: React.FC = () => {
     const [filter, setFilter] = useState<string>('');
+    const [isCartOpened, setIsCartOpened] = useState<boolean>(false);
     const theme = ProvideTheme();
     const navigate = useNavigate();
 
@@ -42,8 +43,6 @@ const Navbar: React.FC = () => {
                     <img className={`${style.icon} ${style.iconDesktop}`} src={theme?.images.logoFull} alt="Logo" />
                 </Link>
 
-                <Cart />
-
                 <div className={`${style.searchWrapper}`}>
                     <form onSubmit={handleSubmit}>
                         <input
@@ -54,6 +53,7 @@ const Navbar: React.FC = () => {
                             value={filter}
                         />
                     </form>
+
                     <Button
                         click={(event) => handleSubmit(event)}
                         type="Icon"
@@ -72,6 +72,28 @@ const Navbar: React.FC = () => {
                         />
                     </Button>
                 </div>
+
+                <div className={`${style.cartButton}`}>
+                    <Button
+                    type="Label"
+                    ariaLabel="Exibir carrinho"
+                    style={{
+                        backgroundColor: 'transparent'
+                    }}
+                    click={() => setIsCartOpened(true)}
+                >
+                    <img
+                        width="25px"
+                        height="25px"
+                        src={theme?.images.icons.cartIcon}
+                        alt="Ícone do carrinho"
+                    />
+                </Button>
+                </div>
+                <Cart
+                    show={isCartOpened}
+                    onClose={() => setIsCartOpened(false)}
+                />
             </nav>
         </header>
     );

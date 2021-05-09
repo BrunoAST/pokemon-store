@@ -1,5 +1,6 @@
 interface Icons {
-    searchIco: string
+    searchIco: string;
+    cartIcon: string;
 }
 
 interface Images {
@@ -13,13 +14,16 @@ interface Colors {
 }
 
 interface Styles {
+    button: {
+        buttonContainer: string;
+    },
     card: {
         cardContainer: string;
         titleContainer: string;
         priceContainer: string;
     },
-    button: {
-        buttonContainer: string;
+    cart: {
+        titleContainer: string;
     }
 }
 
