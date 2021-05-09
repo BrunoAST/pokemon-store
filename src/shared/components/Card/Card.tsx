@@ -10,9 +10,12 @@ import Button from '../Button/Button';
 import { useCartItem } from 'context/cart/CartContext';
 import IPokemonCart from 'shared/interfaces/pokemon-cart.interface';
 import priceToCurrency from 'shared/transformers/currency-to-currency';
+import { setPokemon } from 'shared/storage/local-storage';
+import { useTheme } from 'context/theme/ThemeContext';
 
 const Card: React.FC<ICard> = ({ url }) => {
-    const theme = ProvideTheme();
+    const themeProvider = ProvideTheme();
+    const { theme } = useTheme();
     const { pokemonInformations, isLoading } = useGetPokemonByUrl(url);
     const price = useNameToPrice(pokemonInformations?.name);
     const { cartItem, setCartItem } = useCartItem();
@@ -31,6 +34,7 @@ const Card: React.FC<ICard> = ({ url }) => {
         if (findedIndex < 0) {
             const items = [...cartItem, item];
             setCartItem(items);
+            setPokemon(items, theme);
             return;
         }
 
@@ -38,12 +42,13 @@ const Card: React.FC<ICard> = ({ url }) => {
         itemToModify.quantity++;
         cartItem[findedIndex] = itemToModify;
         setCartItem([...cartItem]);
+        setPokemon([...cartItem], theme);
     }
 
     return (
         isLoading
             ? <CardSkeleton />
-            : <article className={`${style.card} ${theme?.styles.card.cardContainer}`}>
+            : <article className={`${style.card} ${themeProvider?.styles.card.cardContainer}`}>
                 <img
                     className={`${style.image}`}
                     width="200px"
@@ -53,11 +58,11 @@ const Card: React.FC<ICard> = ({ url }) => {
                     alt={pokemonInformations?.name}
                 />
 
-                <h4 className={`${style.title} ${theme?.styles.card.titleContainer}`}>
+                <h4 className={`${style.title} ${themeProvider?.styles.card.titleContainer}`}>
                     {pokemonInformations?.name}
                 </h4>
 
-                <span className={`${style.price} ${theme?.styles.card.priceContainer}`}>
+                <span className={`${style.price} ${themeProvider?.styles.card.priceContainer}`}>
                     {price && priceToCurrency(price)}
                 </span>
 

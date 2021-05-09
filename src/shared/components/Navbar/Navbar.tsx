@@ -82,7 +82,9 @@ const Navbar: React.FC = () => {
                         type="Label"
                         ariaLabel="Exibir carrinho"
                         style={{
-                            backgroundColor: 'transparent'
+                            backgroundColor: 'transparent',
+                            display: 'flex',
+                            gap: '12px',
                         }}
                         click={() => setIsCartOpened(true)}
                     >

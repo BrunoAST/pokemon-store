@@ -8,21 +8,33 @@ import priceToCurrency from 'shared/transformers/currency-to-currency';
 import Button from '../Button/Button';
 import ProvideTheme from 'shared/provider/ThemeProvider';
 import closeIcon from 'assets/global/Close.svg';
+import { useTheme } from 'context/theme/ThemeContext';
+import { getPokemon, setPokemon } from 'shared/storage/local-storage';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
   const { cartItem, setCartItem } = useCartItem();
-  const theme = ProvideTheme();
+  const themeProvider = ProvideTheme();
+  const { theme } = useTheme();
 
   useEffect(() => {
     RemoveBodyOverflow(show);
     return () => { }
   }, [show]);
 
+  useEffect(() => {
+    function setItems() {
+      setCartItem([...getPokemon(theme)])
+    }
+    setItems();
+    return () => { }
+  }, [theme, setCartItem]);
+
   function add(index: number): void {
     const item = cartItem[index];
     item.quantity++;
     cartItem[index] = item;
     setCartItem([...cartItem]);
+    setPokemon([...cartItem], theme);
   }
 
   function remove(index: number): void {
@@ -32,11 +44,13 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
     if (item.quantity <= 0) {
       cartItem.splice(index, 1);
       setCartItem([...cartItem]);
-      return
+      setPokemon([...cartItem], theme);
+      return;
     }
 
     cartItem[index] = item;
     setCartItem([...cartItem]);
+    setPokemon([...cartItem], theme);
   }
 
   return (
@@ -107,7 +121,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                                 ariaLabel="Remover um"
                                 type="Icon"
                                 hasRipple={true}
-                                style={theme?.styles.cart.buttons.minus}
+                                style={themeProvider?.styles.cart.buttons.minus}
                                 click={() => remove(index)}
                               >
                                 <img
@@ -115,7 +129,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                                   style={{ display: 'block' }}
                                   width="15px"
                                   height="15px"
-                                  src={theme?.images.icons.minus}
+                                  src={themeProvider?.images.icons.minus}
                                   alt="Remover um"
                                 />
                               </Button>
@@ -126,12 +140,12 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                                 ariaLabel="Adicionar um"
                                 type="Icon"
                                 hasRipple={true}
-                                style={theme?.styles.cart.buttons.plus}
+                                style={themeProvider?.styles.cart.buttons.plus}
                                 click={() => add(index)}
                               >
                                 <img
                                   style={{ display: 'block' }}
-                                  src={theme?.images.icons.plus}
+                                  src={themeProvider?.images.icons.plus}
                                   width="15px"
                                   height="15px"
                                   alt="Adicionar um"
