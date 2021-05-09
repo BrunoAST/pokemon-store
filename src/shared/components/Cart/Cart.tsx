@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
 import style from './cart.module.css';
 import { useCartItem } from 'context/cart/CartContext';
@@ -10,9 +10,11 @@ import ProvideTheme from 'shared/provider/ThemeProvider';
 import closeIcon from 'assets/global/Close.svg';
 import { useTheme } from 'context/theme/ThemeContext';
 import { getPokemon, setPokemon } from 'shared/storage/local-storage';
+import Modal from '../Modal/Modal';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
   const { cartItem, setCartItem } = useCartItem();
+  const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
   const themeProvider = ProvideTheme();
   const { theme } = useTheme();
 
@@ -55,6 +57,12 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
     setPokemon([...cartItem], theme);
   }
 
+  function resetAll(): void {
+    setIsModalOpened(false);
+    setCartItem([]);
+    setPokemon([], theme);
+  }
+
   return (
     <>
       {
@@ -72,8 +80,8 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                   tabIndex={0}
                   className={`${style.cartTitle}`}
                 >
-                  Detalhes do carrinho
-                                </h1>
+                  Carrinho
+                </h1>
 
                 <Button
                   ariaLabel="Fechar carrinho"
@@ -169,13 +177,14 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
 
                       <Button
                         ariaLabel="Finalizar compra"
-                        click={() => { }}
+                        click={() => setIsModalOpened(true)}
                         type="Label"
                         hasRipple={true}
                       >
                         Finalizar compra
                       </Button>
                     </div>
+                    <Modal show={isModalOpened} onClose={() => resetAll()} />
                   </div>
               }
             </div>

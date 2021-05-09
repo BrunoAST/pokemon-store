@@ -1,0 +1,41 @@
+.overlay {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    z-index: 30;
+}
+
+.modalContainer {
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 30%;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    border-radius: 20px;
+    animation: scaleUp 300ms forwards;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
