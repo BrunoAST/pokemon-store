@@ -23,7 +23,9 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
 
   useEffect(() => {
     function setItems() {
-      setCartItem([...getPokemon(theme)])
+      if (!getPokemon(theme)) return;
+
+      setCartItem([...getPokemon(theme)]);
     }
     setItems();
     return () => { }
