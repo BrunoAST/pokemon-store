@@ -7,7 +7,7 @@ import RemoveBodyOverflow from 'shared/helpers/RemoveBodyOverflow';
 import priceToCurrency from 'shared/transformers/currency-to-currency';
 import Button from '../Button/Button';
 import ProvideTheme from 'shared/provider/ThemeProvider';
-import IPokemonCart from 'shared/interfaces/pokemon-cart.interface';
+import closeIcon from 'assets/global/Close.svg';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
   const { cartItem, setCartItem } = useCartItem();
@@ -15,7 +15,6 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
 
   useEffect(() => {
     RemoveBodyOverflow(show);
-
     return () => { }
   }, [show]);
 
@@ -60,14 +59,21 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                   Detalhes do carrinho
                                 </h1>
 
-                <div
-                  tabIndex={0}
-                  role="button"
-                  aria-label="Fechar carrinho"
-                  className="closeIcon"
-                  onClick={onClose}
+                <Button
+                  ariaLabel="Fechar carrinho"
+                  type="Icon"
+                  hasRipple={true}
+                  click={() => onClose()}
                 >
-                </div>
+                  <img
+                    style={{ display: 'block' }}
+                    src={closeIcon}
+                    alt="Fechar carrinho"
+                    width="20px"
+                    height="20px"
+                    loading="lazy"
+                  />
+                </Button>
               </section>
 
               {
@@ -92,7 +98,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                             <h6 className={`${style.listPokemonName}`}>
                               {item.name}
                             </h6>
-                            <p>{priceToCurrency(item.price)}</p>
+                            <p className={`${style.price}`}>{priceToCurrency(item.price)}</p>
                           </div>
 
                           <div className={`${style.listButtons}`}>
@@ -106,6 +112,8 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                               <img
                                 loading="lazy"
                                 style={{ display: 'block' }}
+                                width="15px"
+                                height="15px"
                                 src={theme?.images.icons.minus}
                                 alt="Remover um"
                               />
@@ -123,6 +131,8 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                               <img
                                 style={{ display: 'block' }}
                                 src={theme?.images.icons.plus}
+                                width="15px"
+                                height="15px"
                                 alt="Adicionar um"
                                 loading="lazy"
                               />

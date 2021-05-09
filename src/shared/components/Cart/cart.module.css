@@ -39,7 +39,7 @@
 
 .listItem {
     display: flex;
-    gap: 16px;
+    justify-content: space-evenly;
 }
 
 .listEmptyCart {
@@ -56,6 +56,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    max-width: 90px;
+}
+
+.price {
+    font-size: 1.2rem;
 }
 
 .listPokemonName {
@@ -84,5 +89,9 @@
         width: 95%;
         height: 100vh;
         top: 0;
+    }
+
+    .listItem {
+        gap: 8px;
     }
 }
