@@ -3,10 +3,10 @@ import React, { memo, useEffect } from 'react';
 import style from './cart.module.css';
 import { useCartItem } from 'context/cart/CartContext';
 import ICart from './interfaces/cart.interface';
-import ProvideTheme from 'shared/provider/ThemeProvider';
+// import ProvideTheme from 'shared/provider/ThemeProvider';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
-    const theme = ProvideTheme();
+    // const theme = ProvideTheme();
     const { cartItem } = useCartItem();
 
     useEffect(() => {
