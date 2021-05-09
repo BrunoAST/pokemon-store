@@ -6,10 +6,12 @@ import { BrowserRoute } from '../../constants/browser-route.const';
 import ProvideTheme from '../../provider/ThemeProvider';
 import Button from '../Button/Button';
 import Cart from '../Cart/Cart';
+import { useCartItem } from 'context/cart/CartContext';
 
 const Navbar: React.FC = () => {
     const [filter, setFilter] = useState<string>('');
     const [isCartOpened, setIsCartOpened] = useState<boolean>(false);
+    const { cartItem } = useCartItem();
     const theme = ProvideTheme();
     const navigate = useNavigate();
 
@@ -38,7 +40,7 @@ const Navbar: React.FC = () => {
                         src={theme?.images.logoIcon}
                         alt="Logo"
                         width="150px"
-                        height="50px"                
+                        height="50px"
                     />
                     <img className={`${style.icon} ${style.iconDesktop}`} src={theme?.images.logoFull} alt="Logo" />
                 </Link>
@@ -84,14 +86,19 @@ const Navbar: React.FC = () => {
                         }}
                         click={() => setIsCartOpened(true)}
                     >
-                    <img
-                        width="25px"
-                        height="25px"
-                        src={theme?.images.icons.cartIcon}
-                        alt="Ícone do carrinho"
-                    />
-                </Button>
+                        <img
+                            width="25px"
+                            height="25px"
+                            src={theme?.images.icons.cartIcon}
+                            alt="Ícone do carrinho"
+                        />
+
+                        <span>
+                            {cartItem.reduce((acc, current) => acc + current.quantity, 0)}
+                        </span>
+                    </Button>
                 </div>
+
                 <Cart
                     show={isCartOpened}
                     onClose={() => setIsCartOpened(false)}

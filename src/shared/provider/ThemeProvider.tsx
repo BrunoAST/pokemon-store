@@ -14,7 +14,7 @@ import waterTypeSearchIcon from 'assets/water/icons/Search.svg';
 import waterTypeCartIcon from 'assets/water/icons/Bag.svg';
 import waterTypePlusIcon from 'assets/water/icons/Plus.svg';
 import waterTypeMinusIcon from 'assets/water/icons/Minus.svg';
-import Buttons from 'theme/water/button-add-remove-cart';
+import waterTypeButtonCart from 'theme/water/button-add-remove-cart';
 
 import fireTypeLogo from 'assets/fire/logo/LogoType.svg';
 import fireTypeLogoFull from 'assets/fire/logo/LogoFull.svg';
@@ -24,6 +24,9 @@ import fireTypeButton from 'theme/fire/button.module.css';
 import fireTypeCart from 'theme/fire/cart.module.css';
 import fireTypeSearchIcon from 'assets/fire/icons/Search.svg';
 import fireTypeCartIcon from 'assets/fire/icons/Cart.svg';
+import fireTypePlusIcon from 'assets/fire/icons/Plus.svg';
+import fireTypeMinusIcon from 'assets/fire/icons/Minus.svg';
+import fireTypeButtonCart from 'theme/fire/button-add-remove-cart';
 
 import dragonTypeLogo from 'assets/dragon/logo/LogoType.svg';
 import dragonTypeLogoFull from 'assets/dragon/logo/LogoFull.svg';
@@ -33,6 +36,9 @@ import dragonTypeButton from 'theme/dragon/button.module.css';
 import dragonTypeCart from 'theme/dragon/cart.module.css';
 import dragonTypeSearchIcon from 'assets/dragon/icons/Search.svg';
 import dragonTypeCartIcon from 'assets/dragon/icons/Cart.svg';
+import dragonTypePlusIcon from 'assets/dragon/icons/Plus.svg';
+import dragonTypeMinusIcon from 'assets/dragon/icons/Minus.svg';
+import dragonTypeButtonCart from 'theme/dragon/button-add-remove-cart';
 
 export default function ProvideTheme() {
     const { theme } = useTheme();
@@ -54,7 +60,7 @@ export default function ProvideTheme() {
                 },
                 cart: {
                     titleContainer: waterTypeCart.cartTilteContainer,
-                    buttons: Buttons
+                    buttons: waterTypeButtonCart
                 }
             },
             images: {
@@ -87,7 +93,8 @@ export default function ProvideTheme() {
                     buttonContainer: fireTypeButton.buttonContainer,
                 },
                 cart: {
-                    titleContainer: fireTypeCart.cartTilteContainer
+                    titleContainer: fireTypeCart.cartTilteContainer,
+                    buttons: fireTypeButtonCart
                 }
             },
             images: {
@@ -95,7 +102,9 @@ export default function ProvideTheme() {
                 logoFull: fireTypeLogoFull,
                 icons: {
                     searchIco: fireTypeSearchIcon,
-                    cartIcon: fireTypeCartIcon
+                    cartIcon: fireTypeCartIcon,
+                    minus: fireTypeMinusIcon,
+                    plus: fireTypePlusIcon
                 }
             },
             searchInputText: 'O que você procura?'
@@ -118,7 +127,8 @@ export default function ProvideTheme() {
                     buttonContainer: dragonTypeButton.buttonContainer,
                 },
                 cart: {
-                    titleContainer: dragonTypeCart.cartTilteContainer
+                    titleContainer: dragonTypeCart.cartTilteContainer,
+                    buttons: dragonTypeButtonCart
                 }
             },
             images: {
@@ -126,7 +136,9 @@ export default function ProvideTheme() {
                 logoFull: dragonTypeLogoFull,
                 icons: {
                     searchIco: dragonTypeSearchIcon,
-                    cartIcon: dragonTypeCartIcon
+                    cartIcon: dragonTypeCartIcon,
+                    minus: dragonTypeMinusIcon,
+                    plus: dragonTypePlusIcon
                 }
             },
             searchInputText: 'O que você precisa hoje?'
