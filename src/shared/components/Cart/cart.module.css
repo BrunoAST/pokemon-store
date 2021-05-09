@@ -28,6 +28,7 @@
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 .closeIcon {
@@ -63,10 +64,23 @@
 
 .listItem {
     display: flex;
+    gap: 16px;
 }
 
 .listImage {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+    box-shadow: 0 5px 12px 3px rgba(0, 0, 0, .1), 0 2px 4px 1px rgba(0, 0, 0, .06);
+    border-radius: 10px;
+}
+
+.listNamePrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.listPokemonName {
+    text-transform: capitalize;
+    font-size: 1.4rem;
 }
 
 @keyframes slideIn {

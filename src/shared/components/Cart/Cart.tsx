@@ -4,6 +4,7 @@ import style from './cart.module.css';
 import { useCartItem } from 'context/cart/CartContext';
 import ICart from './interfaces/cart.interface';
 import RemoveBodyOverflow from 'shared/helpers/RemoveBodyOverflow';
+import priceToCurrency from 'shared/transformers/currenct-to-currency';
 // import ProvideTheme from 'shared/provider/ThemeProvider';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
@@ -48,7 +49,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                             <ul className={`${style.list}`}>
                                 {
                                     cartItem.map(item =>
-                                        <li className={`${style.listItem}`}>
+                                        <li key={item.id} className={`${style.listItem}`}>
                                             <picture>
                                                 <img
                                                     src={item.imageUrl}
@@ -58,6 +59,13 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                                                     className={`${style.listImage}`}
                                                 />
                                             </picture>
+
+                                            <div className={`${style.listNamePrice}`}>
+                                                <h6 className={`${style.listPokemonName}`}>
+                                                    {item.name}
+                                                </h6>
+                                                <p>{priceToCurrency(item.price)}</p>
+                                            </div>
                                         </li>
                                     )
                                 }
