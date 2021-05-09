@@ -61,6 +61,7 @@ const Navbar: React.FC = () => {
                         click={(event) => handleSubmit(event)}
                         hasRipple={true}
                         type="Icon"
+                        dataCy="searchButton"
                         ariaLabel="Botão de pesquisa"
                         style={{
                             position: 'absolute',
@@ -81,8 +82,8 @@ const Navbar: React.FC = () => {
                     <Button
                         hasRipple={true}
                         type="Label"
+                        dataCy="cartButton"
                         ariaLabel="Exibir carrinho"
-                        dataCy="searchButton"
                         style={{
                             backgroundColor: 'transparent',
                             display: 'flex',

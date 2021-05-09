@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-beforeAll(() => {
+beforeEach(() => {
     cy.visit('https://pokemon-store-water.vercel.app/');
 });
 
