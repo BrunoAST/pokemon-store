@@ -3,6 +3,7 @@ import React, { memo, useEffect } from 'react';
 import style from './cart.module.css';
 import { useCartItem } from 'context/cart/CartContext';
 import ICart from './interfaces/cart.interface';
+import RemoveBodyOverflow from 'shared/helpers/RemoveBodyOverflow';
 // import ProvideTheme from 'shared/provider/ThemeProvider';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
@@ -10,15 +11,8 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
     const { cartItem } = useCartItem();
 
     useEffect(() => {
-        function removeBodyOverflow() {
-            if (!show) {
-                document.body.style.overflowY = 'auto';
-                return;
-            };
-            document.body.style.overflowY = 'hidden';
-        }
-        removeBodyOverflow();
-
+        RemoveBodyOverflow(show);
+        
         return () => { }
     }, [show]);
 
