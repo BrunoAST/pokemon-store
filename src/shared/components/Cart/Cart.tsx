@@ -4,13 +4,15 @@ import style from './cart.module.css';
 import { useCartItem } from 'context/cart/CartContext';
 import ICart from './interfaces/cart.interface';
 import RemoveBodyOverflow from 'shared/helpers/RemoveBodyOverflow';
-import priceToCurrency from 'shared/transformers/currenct-to-currency';
+import priceToCurrency from 'shared/transformers/currency-to-currency';
 import Button from '../Button/Button';
 import ProvideTheme from 'shared/provider/ThemeProvider';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
-  const theme = ProvideTheme();
   const { cartItem } = useCartItem();
+  const theme = ProvideTheme();
+
+  console.log(cartItem)
 
   useEffect(() => {
     RemoveBodyOverflow(show);

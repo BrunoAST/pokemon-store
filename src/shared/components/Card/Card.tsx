@@ -9,7 +9,7 @@ import CardSkeleton from '../CardSkeleton/CardSkeleton';
 import Button from '../Button/Button';
 import { useCartItem } from 'context/cart/CartContext';
 import IPokemonCart from 'shared/interfaces/pokemon-cart.interface';
-import priceToCurrency from 'shared/transformers/currenct-to-currency';
+import priceToCurrency from 'shared/transformers/currency-to-currency';
 
 const Card: React.FC<ICard> = ({ url }) => {
     const theme = ProvideTheme();
@@ -22,11 +22,22 @@ const Card: React.FC<ICard> = ({ url }) => {
             imageUrl: pokemonInformations?.sprites.front_default,
             name: pokemonInformations?.name,
             id: pokemonInformations?.id,
-            price: Number(price)
+            price: Number(price),
+            quantity: 1
         };
-        const items = [...cartItem, item]
-        
-        setCartItem(items);
+
+        const findedIndex = cartItem.findIndex(item => item.id === pokemonInformations?.id);
+
+        if (findedIndex < 0) {
+            const items = [...cartItem, item];
+            setCartItem(items);
+            return;
+        }
+
+        const itemToModify = cartItem[findedIndex];
+        itemToModify.quantity++;
+        cartItem[findedIndex] = itemToModify;
+        setCartItem([...cartItem]);
     }
 
     return (
