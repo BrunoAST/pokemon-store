@@ -7,18 +7,38 @@ import RemoveBodyOverflow from 'shared/helpers/RemoveBodyOverflow';
 import priceToCurrency from 'shared/transformers/currency-to-currency';
 import Button from '../Button/Button';
 import ProvideTheme from 'shared/provider/ThemeProvider';
+import IPokemonCart from 'shared/interfaces/pokemon-cart.interface';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
-  const { cartItem } = useCartItem();
+  const { cartItem, setCartItem } = useCartItem();
   const theme = ProvideTheme();
-
-  console.log(cartItem)
 
   useEffect(() => {
     RemoveBodyOverflow(show);
 
     return () => { }
   }, [show]);
+
+  function add(index: number): void {
+    const item = cartItem[index];
+    item.quantity++;
+    cartItem[index] = item;
+    setCartItem([...cartItem]);
+  }
+
+  function remove(index: number): void {
+    const item = cartItem[index];
+    item.quantity--;
+
+    if (item.quantity <= 0) {
+      cartItem.splice(index, 1);
+      setCartItem([...cartItem]);
+      return
+    }
+
+    cartItem[index] = item;
+    setCartItem([...cartItem]);
+  }
 
   return (
     <>
@@ -55,7 +75,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                   <h4 className={`${style.listEmptyCart}`}>Seu carrinho está vazio</h4> :
                   <ul className={`${style.list}`}>
                     {
-                      cartItem.map(item =>
+                      cartItem.map((item, index) =>
                         <li key={item.id} className={`${style.listItem}`}>
                           <picture>
                             <img
@@ -81,33 +101,32 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                               type="Icon"
                               hasRipple={true}
                               style={theme?.styles.cart.buttons.minus}
-                              click={() => { }}
+                              click={() => remove(index)}
                             >
                               <img
                                 loading="lazy"
-                                style={{display: 'block'}}
+                                style={{ display: 'block' }}
                                 src={theme?.images.icons.minus}
                                 alt="Remover um"
                               />
                             </Button>
 
-                            {/* {} */}
+                            {item.quantity}
 
                             <Button
                               ariaLabel="Adicionar um"
                               type="Icon"
                               hasRipple={true}
                               style={theme?.styles.cart.buttons.plus}
-                              click={() => { }}
+                              click={() => add(index)}
                             >
                               <img
-                                style={{display: 'block'}}
+                                style={{ display: 'block' }}
                                 src={theme?.images.icons.plus}
                                 alt="Adicionar um"
                                 loading="lazy"
                               />
                             </Button>
-
                           </div>
                         </li>
                       )
