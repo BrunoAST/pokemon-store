@@ -61,6 +61,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
     setIsModalOpened(false);
     setCartItem([]);
     setPokemon([], theme);
+    onClose();
   }
 
   return (
