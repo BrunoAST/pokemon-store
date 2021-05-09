@@ -50,6 +50,10 @@ table {
 	border-spacing: 0;
 }
 
+hr {
+	width: 100%;
+}
+
 *, *::after, *::before {
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;

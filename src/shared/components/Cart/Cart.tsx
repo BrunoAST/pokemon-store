@@ -79,69 +79,88 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
               {
                 cartItem.length <= 0 ?
                   <h4 className={`${style.listEmptyCart}`}>Seu carrinho está vazio</h4> :
-                  <ul className={`${style.list}`}>
-                    {
-                      cartItem.map((item, index) =>
-                        <li key={item.id} className={`${style.listItem}`}>
-                          <picture>
-                            <img
-                              src={item.imageUrl}
-                              alt={item.name}
-                              width="100px"
-                              height="100px"
-                              className={`${style.listImage}`}
-                              loading="lazy"
-                            />
-                          </picture>
-
-                          <div className={`${style.listNamePrice}`}>
-                            <h6 className={`${style.listPokemonName}`}>
-                              {item.name}
-                            </h6>
-                            <p className={`${style.price}`}>{priceToCurrency(item.price)}</p>
-                          </div>
-
-                          <div className={`${style.listButtons}`}>
-                            <Button
-                              ariaLabel="Remover um"
-                              type="Icon"
-                              hasRipple={true}
-                              style={theme?.styles.cart.buttons.minus}
-                              click={() => remove(index)}
-                            >
+                  <div className={`${style.resumeContainer}`}>
+                    <ul className={`${style.list}`}>
+                      {
+                        cartItem.map((item, index) =>
+                          <li key={item.id} className={`${style.listItem}`}>
+                            <picture>
                               <img
-                                loading="lazy"
-                                style={{ display: 'block' }}
-                                width="15px"
-                                height="15px"
-                                src={theme?.images.icons.minus}
-                                alt="Remover um"
-                              />
-                            </Button>
-
-                            {item.quantity}
-
-                            <Button
-                              ariaLabel="Adicionar um"
-                              type="Icon"
-                              hasRipple={true}
-                              style={theme?.styles.cart.buttons.plus}
-                              click={() => add(index)}
-                            >
-                              <img
-                                style={{ display: 'block' }}
-                                src={theme?.images.icons.plus}
-                                width="15px"
-                                height="15px"
-                                alt="Adicionar um"
+                                src={item.imageUrl}
+                                alt={item.name}
+                                width="100px"
+                                height="100px"
+                                className={`${style.listImage}`}
                                 loading="lazy"
                               />
-                            </Button>
-                          </div>
-                        </li>
-                      )
-                    }
-                  </ul>
+                            </picture>
+
+                            <div className={`${style.listNamePrice}`}>
+                              <h6 className={`${style.listPokemonName}`}>
+                                {item.name}
+                              </h6>
+                              <p className={`${style.price}`}>{priceToCurrency(item.price)}</p>
+                            </div>
+
+                            <div className={`${style.listButtons}`}>
+                              <Button
+                                ariaLabel="Remover um"
+                                type="Icon"
+                                hasRipple={true}
+                                style={theme?.styles.cart.buttons.minus}
+                                click={() => remove(index)}
+                              >
+                                <img
+                                  loading="lazy"
+                                  style={{ display: 'block' }}
+                                  width="15px"
+                                  height="15px"
+                                  src={theme?.images.icons.minus}
+                                  alt="Remover um"
+                                />
+                              </Button>
+
+                              {item.quantity}
+
+                              <Button
+                                ariaLabel="Adicionar um"
+                                type="Icon"
+                                hasRipple={true}
+                                style={theme?.styles.cart.buttons.plus}
+                                click={() => add(index)}
+                              >
+                                <img
+                                  style={{ display: 'block' }}
+                                  src={theme?.images.icons.plus}
+                                  width="15px"
+                                  height="15px"
+                                  alt="Adicionar um"
+                                  loading="lazy"
+                                />
+                              </Button>
+                            </div>
+                          </li>
+                        )
+                      }
+                    </ul>
+
+                    <hr />
+                    <div className={`${style.listResume}`}>
+                      <p className={`${style.listResumePrice}`}>
+                        Total: &nbsp;
+                          {priceToCurrency(cartItem.reduce((acc, current) => acc + current.price * current.quantity, 0))}
+                      </p>
+
+                      <Button
+                        ariaLabel="Finalizar compra"
+                        click={() => { }}
+                        type="Label"
+                        hasRipple={true}
+                      >
+                        Finalizar compra
+                      </Button>
+                    </div>
+                  </div>
               }
             </div>
           </div>
