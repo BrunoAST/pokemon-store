@@ -13,10 +13,11 @@
 
 .cartContainer {
     position: absolute;
-    height: 100vh;
+    height: calc(100vh - 80px);
     overflow-y: auto;
+    overflow-x: hidden;
     right: 0;
-    width: 40%;
+    width: 40vw;
     top: 80px;
     background-color: white;
     padding: 1rem;
@@ -54,6 +55,20 @@
     transform: rotate(-45deg);
 }
 
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.listItem {
+    display: flex;
+}
+
+.listImage {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+}
+
 @keyframes slideIn {
     from {
         transform: translateX(1000px);
@@ -67,6 +82,7 @@
 @media(max-width: 959px) {
     .cartContainer {
         width: 95%;
+        height: 100vh;
         top: 0;
     }
 }

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 
 import style from './cart.module.css';
 import { useCartItem } from 'context/cart/CartContext';
@@ -8,6 +8,19 @@ import ProvideTheme from 'shared/provider/ThemeProvider';
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
     const theme = ProvideTheme();
     const { cartItem } = useCartItem();
+
+    useEffect(() => {
+        function removeBodyOverflow() {
+            if (!show) {
+                document.body.style.overflowY = 'auto';
+                return;
+            };
+            document.body.style.overflowY = 'hidden';
+        }
+        removeBodyOverflow();
+
+        return () => { }
+    }, [show]);
 
     return (
         <>
@@ -19,7 +32,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                         <div
                             className={`${style.cartContainer}`}
                         >
-                            <div
+                            <section
                                 className={`${style.cartTilteContainer}`}
                             >
                                 <h1
@@ -36,9 +49,25 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                                     onClick={onClose}
                                 >
                                 </div>
-                            </div>
+                            </section>
 
-
+                            <ul className={`${style.list}`}>
+                                {
+                                    cartItem.map(item =>
+                                        <li className={`${style.listItem}`}>
+                                            <picture>
+                                                <img
+                                                    src={item.imageUrl}
+                                                    alt={item.name}
+                                                    width="100px"
+                                                    height="100px"
+                                                    className={`${style.listImage}`}
+                                                />
+                                            </picture>
+                                        </li>
+                                    )
+                                }
+                            </ul>
                         </div>
                     </div>
                     : null

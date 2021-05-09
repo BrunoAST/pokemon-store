@@ -21,6 +21,7 @@ const Card: React.FC<ICard> = ({ url }) => {
         const item: IPokemonCart = {
             imageUrl: pokemonInformations?.sprites.front_default,
             name: pokemonInformations?.name,
+            id: pokemonInformations?.id,
             price: Number(price)
         };
         const items = [...cartItem, item]

@@ -11,7 +11,7 @@ const useGetPokemonByUrl = (url: any) => {
         function getPokemonByUrl() {
             ListHttpService.getPokemonByUrl(url)
                 .then(res => {
-                    setPokemonInformations({ name: '', sprites: { front_default: '' } });
+                    setPokemonInformations({ name: '', id: -1, sprites: { front_default: '' } });
                     setPokemonInformations(res.data);
                 })
                 .finally(() => setIsLoading(false));

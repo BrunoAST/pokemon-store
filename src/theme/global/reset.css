@@ -31,6 +31,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+body, #portal, #root {
+	overflow-x: hidden;
+}
 ol, ul {
 	list-style: none;
 }
