@@ -8,6 +8,10 @@ button {
     transition: transform 300ms ease;
 }
 
+button:focus-within {
+    outline: 1px solid;
+}
+
 button::before {
     content: '';
     position: absolute;
