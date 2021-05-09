@@ -1,5 +1,6 @@
 .cartOverlay, .cartContainer {
     z-index: 10;
+    overflow-x: hidden;
 }
 
 .cartOverlay {
@@ -15,7 +16,6 @@
     position: absolute;
     height: calc(100vh - 80px);
     overflow-y: auto;
-    overflow-x: hidden;
     right: 0;
     width: 40vw;
     top: 80px;
