@@ -8,74 +8,78 @@ import priceToCurrency from 'shared/transformers/currenct-to-currency';
 // import ProvideTheme from 'shared/provider/ThemeProvider';
 
 const Cart: React.FC<ICart> = ({ show, onClose }) => {
-    // const theme = ProvideTheme();
-    const { cartItem } = useCartItem();
+  // const theme = ProvideTheme();
+  const { cartItem } = useCartItem();
 
-    useEffect(() => {
-        RemoveBodyOverflow(show);
-        
-        return () => { }
-    }, [show]);
+  useEffect(() => {
+    RemoveBodyOverflow(show);
 
-    return (
-        <>
-            {
-                show ?
-                    <div
-                        className={`${style.cartOverlay}`}
-                    >
-                        <div
-                            className={`${style.cartContainer}`}
-                        >
-                            <section
-                                className={`${style.cartTilteContainer}`}
-                            >
-                                <h1
-                                    tabIndex={0}
-                                    className={`${style.cartTitle}`}
-                                >
-                                    Detalhes do carrinho
+    return () => { }
+  }, [show]);
+
+  return (
+    <>
+      {
+        show ?
+          <div
+            className={`${style.cartOverlay}`}
+          >
+            <div
+              className={`${style.cartContainer}`}
+            >
+              <section
+                className={`${style.cartTilteContainer}`}
+              >
+                <h1
+                  tabIndex={0}
+                  className={`${style.cartTitle}`}
+                >
+                  Detalhes do carrinho
                                 </h1>
 
-                                <div
-                                    tabIndex={0}
-                                    aria-label="Fechar carrinho"
-                                    className={`${style.closeIcon}`}
-                                    onClick={onClose}
-                                >
-                                </div>
-                            </section>
+                <div
+                  tabIndex={0}
+                  aria-label="Fechar carrinho"
+                  className={`${style.closeIcon}`}
+                  onClick={onClose}
+                >
+                </div>
+              </section>
 
-                            <ul className={`${style.list}`}>
-                                {
-                                    cartItem.map(item =>
-                                        <li key={item.id} className={`${style.listItem}`}>
-                                            <picture>
-                                                <img
-                                                    src={item.imageUrl}
-                                                    alt={item.name}
-                                                    width="100px"
-                                                    height="100px"
-                                                    className={`${style.listImage}`}
-                                                />
-                                            </picture>
+              {
+                cartItem.length <= 0 ?
+                  <h4 className={`${style.listEmptyCart}`}>Seu carrinho está vazio</h4> :
+                  <ul className={`${style.list}`}>
+                    {
+                      cartItem.map(item =>
+                        <li key={item.id} className={`${style.listItem}`}>
+                          <picture>
+                            <img
+                              src={item.imageUrl}
+                              alt={item.name}
+                              width="100px"
+                              height="100px"
+                              className={`${style.listImage}`}
+                            />
+                          </picture>
 
-                                            <div className={`${style.listNamePrice}`}>
-                                                <h6 className={`${style.listPokemonName}`}>
-                                                    {item.name}
-                                                </h6>
-                                                <p>{priceToCurrency(item.price)}</p>
-                                            </div>
-                                        </li>
-                                    )
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                    : null
-            }
-        </>
-    );
+                          <div className={`${style.listNamePrice}`}>
+                            <h6 className={`${style.listPokemonName}`}>
+                              {item.name}
+                            </h6>
+                            <p>{priceToCurrency(item.price)}</p>
+                          </div>
+                        </li>
+                      )
+                    }
+                  </ul>
+              }
+            </div>
+          </div>
+          : null
+      }
+    </>
+  );
 }
 
 export default memo(Cart);
