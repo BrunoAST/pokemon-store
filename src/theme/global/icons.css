@@ -1,0 +1,24 @@
+.closeIcon {
+    cursor: absolute;
+    position: relative;
+    right: 18px;
+    width: 24px;
+    height: 28px;
+}
+
+.closeIcon:before, .closeIcon:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 28px;
+    width: 2px;
+    background-color: #333;
+}
+
+.closeIcon:before {
+    transform: rotate(45deg);
+}
+
+.closeIcon:after {
+    transform: rotate(-45deg);
+}

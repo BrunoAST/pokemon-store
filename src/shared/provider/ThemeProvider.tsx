@@ -12,6 +12,9 @@ import waterTypeButton from 'theme/water/button.module.css';
 import waterTypeCart from 'theme/water/cart.module.css';
 import waterTypeSearchIcon from 'assets/water/icons/Search.svg';
 import waterTypeCartIcon from 'assets/water/icons/Bag.svg';
+import waterTypePlusIcon from 'assets/water/icons/Plus.svg';
+import waterTypeMinusIcon from 'assets/water/icons/Minus.svg';
+import Buttons from 'theme/water/button-add-remove-cart';
 
 import fireTypeLogo from 'assets/fire/logo/LogoType.svg';
 import fireTypeLogoFull from 'assets/fire/logo/LogoFull.svg';
@@ -50,7 +53,8 @@ export default function ProvideTheme() {
                     buttonContainer: waterTypeButton.buttonContainer,
                 },
                 cart: {
-                    titleContainer: waterTypeCart.cartTilteContainer
+                    titleContainer: waterTypeCart.cartTilteContainer,
+                    buttons: Buttons
                 }
             },
             images: {
@@ -58,7 +62,9 @@ export default function ProvideTheme() {
                 logoFull: waterTypeLogoFull,
                 icons: {
                     searchIco: waterTypeSearchIcon,
-                    cartIcon: waterTypeCartIcon
+                    cartIcon: waterTypeCartIcon,
+                    minus: waterTypeMinusIcon,
+                    plus: waterTypePlusIcon
                 }
             },
             searchInputText: 'Qual pokémon está procurando?'

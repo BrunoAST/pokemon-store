@@ -54,6 +54,7 @@ const Card: React.FC<ICard> = ({ url }) => {
                     click={() => addItemToCart()}
                     ariaLabel="Adicionar no carrinho"
                     type="Label"
+                    hasRipple={true}
                 >
                     Adicionar no carrinho
                 </Button>

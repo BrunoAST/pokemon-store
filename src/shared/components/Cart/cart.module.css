@@ -31,31 +31,6 @@
     margin-bottom: 30px;
 }
 
-.closeIcon {
-    cursor: pointer;
-    position: absolute;
-    right: 22px;
-    width: 28px;
-    height: 28px;
-}
-
-.closeIcon:before, .closeIcon:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 28px;
-    width: 2px;
-    background-color: #333;
-}
-
-.closeIcon:before {
-    transform: rotate(45deg);
-}
-
-.closeIcon:after {
-    transform: rotate(-45deg);
-}
-
 .list {
     display: flex;
     flex-direction: column;
@@ -86,6 +61,12 @@
 .listPokemonName {
     text-transform: capitalize;
     font-size: 1.4rem;
+}
+
+.listButtons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 @keyframes slideIn {

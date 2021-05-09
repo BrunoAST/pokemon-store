@@ -62,6 +62,10 @@ form {
         display: block;
     }
 
+    form {
+        margin-top: 10px;
+    }
+
     .searchWrapper {
         height: auto;
         width: 100%;

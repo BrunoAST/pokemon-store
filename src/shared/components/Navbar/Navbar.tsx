@@ -56,6 +56,7 @@ const Navbar: React.FC = () => {
 
                     <Button
                         click={(event) => handleSubmit(event)}
+                        hasRipple={true}
                         type="Icon"
                         ariaLabel="Botão de pesquisa"
                         style={{
@@ -75,13 +76,14 @@ const Navbar: React.FC = () => {
 
                 <div className={`${style.cartButton}`}>
                     <Button
-                    type="Label"
-                    ariaLabel="Exibir carrinho"
-                    style={{
-                        backgroundColor: 'transparent'
-                    }}
-                    click={() => setIsCartOpened(true)}
-                >
+                        hasRipple={true}
+                        type="Label"
+                        ariaLabel="Exibir carrinho"
+                        style={{
+                            backgroundColor: 'transparent'
+                        }}
+                        click={() => setIsCartOpened(true)}
+                    >
                     <img
                         width="25px"
                         height="25px"

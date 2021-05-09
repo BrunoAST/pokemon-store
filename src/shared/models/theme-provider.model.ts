@@ -1,6 +1,10 @@
+import ICartButtons from 'shared/interfaces/cart-buttons.interface';
+
 interface Icons {
     searchIco: string;
     cartIcon: string;
+    plus: string;
+    minus: string;
 }
 
 interface Images {
@@ -24,6 +28,7 @@ interface Styles {
     },
     cart: {
         titleContainer: string;
+        buttons: ICartButtons;
     }
 }
 

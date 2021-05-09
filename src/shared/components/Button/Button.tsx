@@ -4,7 +4,7 @@ import ProvideTheme from 'shared/provider/ThemeProvider';
 import styleModule from './button.module.css';
 import IButton from './interface/button.interface';
 
-const Button: React.FC<IButton> = ({ click, type, ariaLabel, style, children }) => {
+const Button: React.FC<IButton> = ({ click, type, ariaLabel, style, hasRipple, children }) => {
     const theme = ProvideTheme();
 
     function defineStyle(): string {
@@ -15,9 +15,13 @@ const Button: React.FC<IButton> = ({ click, type, ariaLabel, style, children }) 
         return type === 'Icon' ? '' : `${theme?.styles.button.buttonContainer}`;
     }
 
+    function defineRipple(): string {
+        return hasRipple ? `ripple` : ``;
+    }
+
     return (
         <button
-            className={`${defineStyle()} ${defineTypeStyle()}`}
+            className={`${defineStyle()} ${defineTypeStyle()} ${defineRipple()}`}
             aria-label={ariaLabel}
             style={style}
             onClick={click}
