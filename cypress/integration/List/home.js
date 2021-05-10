@@ -83,18 +83,30 @@ describe('List', () => {
         cy.get('[data-cy=cartItemQuantity]').first().should('contain', '2'.trim());
     });
 
-    it.only('Should decrease the total when an item is removed', () => {
+    it('Should decrease the total when an item is removed', () => {
         let initalValue;
         let finalValue;
         
         cy.get('[data-cy=cardButton]').first().click();
         cy.get('[data-cy=cardButton]').last().click();
 
+        cy.get('[data-cy=cartButton]').click();
+
         initalValue = cy.get('[data-cy=cartTotalPrice]').invoke('val');
 
-        cy.get('[data-cy=cartButton]').click();
         cy.get('[data-cy=cartRemoveButton]').first().click();
         finalValue = cy.get('[data-cy=cartTotalPrice]').invoke('val');
         expect(initalValue).not.equal(finalValue);
+    });
+
+    it('Should reset the cart when the purchase is finalized', () => {
+        cy.get('[data-cy=cardButton]').first().click();
+        cy.get('[data-cy=cardButton]').last().click();
+
+        cy.get('[data-cy=cartButton]').click();
+        cy.get('[data-cy=cartFinalizeButton]').click();
+        cy.get('[data-cy=closeModalButton]').click({ force: true });
+
+        cy.get('[data-cy=cartItemsCounter]').should('contain', '0');
     });
 });
