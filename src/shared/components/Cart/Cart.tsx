@@ -154,7 +154,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                               <Button
                                 ariaLabel="Adicionar um"
                                 type="Icon"
-                                dataCy="cartAddBtn"
+                                dataCy="cartAddButton"
                                 hasRipple={true}
                                 style={themeProvider?.styles.cart.buttons.plus}
                                 click={() => add(index)}
