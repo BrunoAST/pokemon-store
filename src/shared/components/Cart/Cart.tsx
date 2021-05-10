@@ -103,7 +103,10 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
 
               {
                 cartItem.length <= 0 ?
-                  <h4 className={`${style.listEmptyCart}`}>Seu carrinho está vazio</h4> :
+                  <h4 data-cy="cartEmptyMessage" className={`${style.listEmptyCart}`}>
+                    Seu carrinho está vazio
+                  </h4> :
+                  
                   <div className={`${style.resumeContainer}`}>
                     <ul className={`${style.list}`}>
                       {

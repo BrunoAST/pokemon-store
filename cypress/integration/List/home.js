@@ -9,7 +9,7 @@ describe('List', () => {
         cy.get('form > input[placeholder]').should('have.attr', 'placeholder', 'Qual pokémon está procurando?'.trim());
     });
 
-    it('Should filter the list when type ()', () => {
+    it('Should filter the list when type (BLAS)', () => {
         cy.get('[data-cy=searchBar]').type('BLAS');
         cy.get('[data-cy=searchButton]').click();
 
@@ -24,19 +24,25 @@ describe('List', () => {
         cy.get('[data-cy=messageEmpty2]').should('contain', 'Tente novamente com outros valores');
     });
 
-    it('Should contain a label in card button', () => {
+    it('Should contain a label at the card button', () => {
         cy.get('[data-cy=cardButton]').should('contain', 'Adicionar no carrinho');
     });
 
-    it('Should contain R$ at the card price', () => {
-        cy.get('[data-cy=cardPrice]').should('contain', 'R$');
+    it('Should contain (R$) at the card price', () => {
+        cy.get('[data-cy=cardPrice]').should('contain', 'R$'.trim());
     });
 
-    it('Should increase the number of items in navbar cart counter', () => {
-        cy.get('[data-cy=cardButton]').click();
-        cy.get('[data-cy=cardButton]').click();
-        cy.get('[data-cy=cardButton]').click();
+    it('Should increase the number of items at the navbar cart counter', () => {
+        cy.get('[data-cy=cartItemsCounter]').should('contain', '0');
+        
+        cy.get('[data-cy=cardButton]').first().click();
+        cy.get('[data-cy=cardButton]').last().click();
 
-        cy.get('[data-cy=cartItemsCounter]').should('contain', '3');
+        cy.get('[data-cy=cartItemsCounter]').should('contain', '2');
+    });
+
+    it('Should show message when cart is empty', () => {
+        cy.get('[data-cy=cartButton]').click();
+        cy.get('data-cy=cartEmptyMessage').should('contain', 'Seu carrinho está vazio'.trim());
     });
 });
