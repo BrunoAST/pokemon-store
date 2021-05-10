@@ -1,4 +1,4 @@
-const priceToCurrency = (value?: number) => {
+const numberToCurrency = (value?: number) => {
     if (!value || isNaN(value)) return value;
 
     return value.toLocaleString("pt-BR", {
@@ -7,4 +7,4 @@ const priceToCurrency = (value?: number) => {
     });
 }
 
-export default priceToCurrency;
+export default numberToCurrency;

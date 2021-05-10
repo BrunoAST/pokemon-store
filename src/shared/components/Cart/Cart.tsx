@@ -4,7 +4,7 @@ import style from './cart.module.css';
 import { useCartItem } from 'context/cart/CartContext';
 import ICart from './interfaces/cart.interface';
 import RemoveBodyOverflow from 'shared/helpers/RemoveBodyOverflow';
-import priceToCurrency from 'shared/transformers/currency-to-currency';
+import numberToCurrency from 'shared/transformers/number-to-currency';
 import Button from '../Button/Button';
 import ProvideTheme from 'shared/provider/ThemeProvider';
 import closeIcon from 'assets/global/Close.svg';
@@ -55,6 +55,10 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
     cartItem[index] = item;
     setCartItem([...cartItem]);
     setPokemon([...cartItem], theme);
+  }
+
+  function total(): number {
+    return cartItem.reduce((acc, current) => acc + current.price * current.quantity, 0);
   }
 
   function resetAll(): void {
@@ -127,7 +131,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                               <h6 className={`${style.listPokemonName}`}>
                                 {item.name}
                               </h6>
-                              <p className={`${style.price}`}>{priceToCurrency(item.price)}</p>
+                              <p className={`${style.price}`}>{numberToCurrency(item.price)}</p>
                             </div>
 
                             <div className={`${style.listButtons}`}>
@@ -179,7 +183,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                       <p data-cy="cartTotalResume" className={`${style.listResumePrice}`}>
                         Total: &nbsp;
                           <span data-cy="cartTotalPrice">
-                            {priceToCurrency(cartItem.reduce((acc, current) => acc + current.price * current.quantity, 0))}
+                            {numberToCurrency(total())}
                           </span>
                       </p>
 
@@ -193,7 +197,11 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                         Finalizar compra
                       </Button>
                     </div>
-                    <Modal show={isModalOpened} onClose={() => resetAll()} />
+                    <Modal
+                      total={total()}
+                      show={isModalOpened}
+                      onClose={() => resetAll()}
+                    />
                   </div>
               }
             </div>

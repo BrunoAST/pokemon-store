@@ -9,7 +9,7 @@ import CardSkeleton from '../CardSkeleton/CardSkeleton';
 import Button from '../Button/Button';
 import { useCartItem } from 'context/cart/CartContext';
 import IPokemonCart from 'shared/interfaces/pokemon-cart.interface';
-import priceToCurrency from 'shared/transformers/currency-to-currency';
+import numberToCurrency from 'shared/transformers/number-to-currency';
 import { setPokemon } from 'shared/storage/local-storage';
 import { useTheme } from 'context/theme/ThemeContext';
 
@@ -63,7 +63,7 @@ const Card: React.FC<ICard> = ({ url }) => {
                 </h4>
 
                 <span data-cy="cardPrice" className={`${style.price} ${themeProvider?.styles.card.priceContainer}`}>
-                    {price && priceToCurrency(price)}
+                    {price && numberToCurrency(price)}
                 </span>
 
                 <Button

@@ -5,8 +5,14 @@ import style from './modal.module.css';
 import closeIcon from 'assets/global/Close.svg';
 import IModal from './interface/modal.interface';
 import Button from '../Button/Button';
+import numberToCurrency from 'shared/transformers/number-to-currency';
 
-const Modal: React.FC<IModal> = ({ show, onClose }) => {
+const Modal: React.FC<IModal> = ({ show, total, onClose }) => {
+    function discount(): number {
+        const value = total * 0.2;
+        return numberToCurrency(value) as number;
+    }
+
     return ReactDOM.createPortal(
         show ?
             <dialog className={style.overlay}>
@@ -42,7 +48,7 @@ const Modal: React.FC<IModal> = ({ show, onClose }) => {
                     </p>
 
                     <p>
-                        R$100,00
+                        {discount()}
                     </p>
                 </div>
             </dialog>
