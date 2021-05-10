@@ -149,7 +149,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                                 />
                               </Button>
 
-                              <span>{item.quantity}</span>
+                              <span data-cy="cartItemQuantity">{item.quantity}</span>
 
                               <Button
                                 ariaLabel="Adicionar um"

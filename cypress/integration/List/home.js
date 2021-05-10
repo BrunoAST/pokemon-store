@@ -49,7 +49,37 @@ describe('List', () => {
     it('Should show a list of items added into cart', () => {
         cy.get('[data-cy=cardButton]').first().click();
         cy.get('[data-cy=cardButton]').last().click();
+        
+        cy.get('[data-cy=cartButton]').click();
 
         cy.get('[data-cy=cartList] > li').should('have.length', 2);
+    });
+
+    it('Should continue with the selected items in the cart after a page reload', () => {
+        cy.get('[data-cy=cardButton]').first().click();
+        cy.get('[data-cy=cardButton]').last().click();
+        
+        cy.reload();
+
+        cy.get('[data-cy=cartButton]').click();
+        cy.get('[data-cy=cartList] > li').should('have.length', 2);
+    });
+
+    it('Should remove an item from the cart when the quantity is zero', () => {
+        cy.get('[data-cy=cardButton]').first().click();
+        cy.get('[data-cy=cardButton]').last().click();
+
+        cy.get('[data-cy=cartButton]').click();
+        cy.get('[data-cy=cartRemoveButton]').first().click();
+        cy.get('[data-cy=cartList] > li').should('have.length', 1);
+    });
+
+     it('Should increase an item from in the cart list when the increase button is clicked', () => {
+        cy.get('[data-cy=cardButton]').first().click();
+        cy.get('[data-cy=cardButton]').last().click();
+
+        cy.get('[data-cy=cartButton]').click();
+        cy.get('[data-cy=cartAddButton]').first().click();
+        cy.get('[data-cy=cartItemQuantity]').first().should('contain', '2'.trim());
     });
 });
