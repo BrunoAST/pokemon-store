@@ -14,6 +14,7 @@ const Modal: React.FC<IModal> = ({ show, onClose }) => {
                     <Button
                         ariaLabel="Fechar"
                         type="Icon"
+                        dataCy="closeModalButton"
                         style={{
                             position: 'absolute',
                             top: '10px',
@@ -32,7 +33,7 @@ const Modal: React.FC<IModal> = ({ show, onClose }) => {
                         />
                     </Button>
 
-                    <h1 style={{ fontSize: '1.2rem' }}>
+                    <h1 data-cy="modalTitle" style={{ fontSize: '1.2rem' }}>
                         Obrigado pela sua compra!
                     </h1>
 

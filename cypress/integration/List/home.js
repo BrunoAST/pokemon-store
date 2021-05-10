@@ -43,6 +43,13 @@ describe('List', () => {
 
     it('Should show message when cart is empty', () => {
         cy.get('[data-cy=cartButton]').click();
-        cy.get('data-cy=cartEmptyMessage').should('contain', 'Seu carrinho está vazio'.trim());
+        cy.get('[data-cy=cartEmptyMessage]').should('contain', 'Seu carrinho está vazio'.trim());
+    });
+
+    it('Should show a list of items added into cart', () => {
+        cy.get('[data-cy=cardButton]').first().click();
+        cy.get('[data-cy=cardButton]').last().click();
+
+        cy.get('[data-cy=cartList] > li').should('have.length', 2);
     });
 });

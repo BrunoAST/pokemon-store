@@ -39,3 +39,17 @@
         transform: scale(1);
     }
 }
+
+@media(max-width: 959px) {
+    .modalContainer {
+        height: 30%;
+        width: 50%;
+    }
+}
+
+@media(max-width: 599px) {
+    .modalContainer {
+        height: 50%;
+        width: 100%;
+    }
+}

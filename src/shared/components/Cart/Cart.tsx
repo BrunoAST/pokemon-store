@@ -108,7 +108,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                   </h4> :
                   
                   <div className={`${style.resumeContainer}`}>
-                    <ul className={`${style.list}`}>
+                    <ul data-cy="cartList" className={`${style.list}`}>
                       {
                         cartItem.map((item, index) =>
                           <li key={item.id} className={`${style.listItem}`}>
@@ -134,6 +134,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                               <Button
                                 ariaLabel="Remover um"
                                 type="Icon"
+                                dataCy="cartRemoveButton"
                                 hasRipple={true}
                                 style={themeProvider?.styles.cart.buttons.minus}
                                 click={() => remove(index)}
@@ -148,11 +149,12 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                                 />
                               </Button>
 
-                              {item.quantity}
+                              <span>{item.quantity}</span>
 
                               <Button
                                 ariaLabel="Adicionar um"
                                 type="Icon"
+                                dataCy="cartAddBtn"
                                 hasRipple={true}
                                 style={themeProvider?.styles.cart.buttons.plus}
                                 click={() => add(index)}
@@ -174,7 +176,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
 
                     <hr />
                     <div className={`${style.listResume}`}>
-                      <p className={`${style.listResumePrice}`}>
+                      <p data-cy="cartTotalResume" className={`${style.listResumePrice}`}>
                         Total: &nbsp;
                           {priceToCurrency(cartItem.reduce((acc, current) => acc + current.price * current.quantity, 0))}
                       </p>
@@ -183,6 +185,7 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                         ariaLabel="Finalizar compra"
                         click={() => setIsModalOpened(true)}
                         type="Label"
+                        dataCy="cartFinalizeButton"
                         hasRipple={true}
                       >
                         Finalizar compra
