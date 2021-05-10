@@ -25,10 +25,18 @@ describe('List', () => {
     });
 
     it('Should contain a label in card button', () => {
-        cy.get('[data-cy=cardButton]').should('contain', 'Adicionar no carrinho'.trim());
+        cy.get('[data-cy=cardButton]').should('contain', 'Adicionar no carrinho');
     });
 
     it('Should contain R$ at the card price', () => {
         cy.get('[data-cy=cardPrice]').should('contain', 'R$');
+    });
+
+    it('Should increase the number of items in navbar cart counter', () => {
+        cy.get('[data-cy=cardButton]').click();
+        cy.get('[data-cy=cardButton]').click();
+        cy.get('[data-cy=cardButton]').click();
+
+        cy.get('[data-cy=cartItemsCounter]').should('contain', '3');
     });
 });

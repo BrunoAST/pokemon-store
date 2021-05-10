@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
                             alt="Ícone do carrinho"
                         />
 
-                        <span>
+                        <span data-cy="cartItemsCounter">
                             {cartItem.reduce((acc, current) => acc + current.quantity, 0)}
                         </span>
                     </Button>
