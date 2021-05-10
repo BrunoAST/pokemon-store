@@ -178,7 +178,9 @@ const Cart: React.FC<ICart> = ({ show, onClose }) => {
                     <div className={`${style.listResume}`}>
                       <p data-cy="cartTotalResume" className={`${style.listResumePrice}`}>
                         Total: &nbsp;
-                          {priceToCurrency(cartItem.reduce((acc, current) => acc + current.price * current.quantity, 0))}
+                          <span data-cy="cartTotalPrice">
+                            {priceToCurrency(cartItem.reduce((acc, current) => acc + current.price * current.quantity, 0))}
+                          </span>
                       </p>
 
                       <Button

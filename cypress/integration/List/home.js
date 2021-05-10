@@ -74,12 +74,27 @@ describe('List', () => {
         cy.get('[data-cy=cartList] > li').should('have.length', 1);
     });
 
-     it('Should increase an item from in the cart list when the increase button is clicked', () => {
+    it('Should increase an item from in the cart list when the increase button is clicked', () => {
         cy.get('[data-cy=cardButton]').first().click();
         cy.get('[data-cy=cardButton]').last().click();
 
         cy.get('[data-cy=cartButton]').click();
         cy.get('[data-cy=cartAddButton]').first().click();
         cy.get('[data-cy=cartItemQuantity]').first().should('contain', '2'.trim());
+    });
+
+    it.only('Should decrease the total when an item is removed', () => {
+        let initalValue;
+        let finalValue;
+        
+        cy.get('[data-cy=cardButton]').first().click();
+        cy.get('[data-cy=cardButton]').last().click();
+
+        initalValue = cy.get('[data-cy=cartTotalPrice]').invoke('val');
+
+        cy.get('[data-cy=cartButton]').click();
+        cy.get('[data-cy=cartRemoveButton]').first().click();
+        finalValue = cy.get('[data-cy=cartTotalPrice]').invoke('val');
+        expect(initalValue).not.equal(finalValue);
     });
 });
